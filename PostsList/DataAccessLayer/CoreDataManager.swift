@@ -8,13 +8,18 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+protocol LocalDataProtocol {
+    func saveContext ()
+    func reset()
+}
+
+class CoreDataManager: LocalDataProtocol {
 
     private let proxyLogger = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: CoreDataManager.self))
 
     static let shared = CoreDataManager()
 
-    private init(){
+    private init() {
         
     }
 
@@ -31,17 +36,74 @@ class CoreDataManager {
     }()
 
     // MARK: - Core Data Saving support
+    lazy var viewContext =  persistentContainer.viewContext
 
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+    func saveContext ()  {
+        let context = viewContext
+        Task {
+            if context.hasChanges {
+                do {
+
+                    try await context.perform {
+                        try context.save()
+                    }
+                } catch {
+                    let nserror = error as NSError
+                    proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+                }
             }
         }
     }
 
+    //TODO: Remove this function
+//    func deletePostsData() {
+//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Post.fetchRequest()
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//        do {
+//            try viewContext.execute(deleteRequest)
+//            try viewContext.save()
+//        }
+//        catch let nserror as NSError {
+//            proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+//        }
+//    }
+
+//    //TODO: Remove this function
+//    func deleteUsersData() {
+//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//        do {
+//            try viewContext.execute(deleteRequest)
+//            try viewContext.save()
+//        }
+//        catch let nserror as NSError {
+//            proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+//        }
+//    }
+
+    func reset() {
+        let stores = persistentContainer.persistentStoreCoordinator.persistentStores
+        guard !stores.isEmpty else {
+            fatalError("No store found")
+        }
+        stores.forEach { store in
+            guard let url = store.url else { fatalError("No store URL found")}
+
+            try! FileManager.default.removeItem(at: url)
+            NSPersistentStoreCoordinator.destroyStoreAtURL(url: url)
+        }
+    }
+}
+
+extension NSPersistentStoreCoordinator {
+    public static func destroyStoreAtURL(url: URL) {
+        do {
+            let psc = self.init(managedObjectModel: NSManagedObjectModel())
+            try psc.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
+        } catch let e {
+            print("failed to destroy persistent store at \(url)", e)
+        }
+    }
 }

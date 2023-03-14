@@ -28,7 +28,7 @@ final class APIClient {
         self.session = session
         self.decoder = decoder
         //TODO: Move this code to better places
-        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
+        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.viewContext
     }
 
     func loadData<T: Decodable>(from url: URL) async throws -> T {

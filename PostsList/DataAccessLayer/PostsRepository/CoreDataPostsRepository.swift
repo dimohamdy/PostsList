@@ -11,9 +11,11 @@ import CoreData
 final class CoreDataPostsRepository: PostsRepository, LocalPostsRepository {
 
     let managedObjectContext: NSManagedObjectContext
-
-    init(managedObjectContext: NSManagedObjectContext) {
+    let logger: LoggerProtocol
+    
+    init(managedObjectContext: NSManagedObjectContext, logger: LoggerProtocol) {
         self.managedObjectContext = managedObjectContext
+        self.logger = logger
     }
 
     func getPosts() async throws -> [Post] {
@@ -47,4 +49,16 @@ final class CoreDataPostsRepository: PostsRepository, LocalPostsRepository {
         try managedObjectContext.save()
     }
 
+    func deletePosts() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Post.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedObjectContext.execute(deleteRequest)
+            try managedObjectContext.save()
+        }
+        catch let nserror as NSError {
+            logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+        }
+    }
 }

@@ -144,18 +144,14 @@ final class PostDetailsViewController: UIViewController {
 extension PostDetailsViewController: PostDetailsPresenterOutput {
     
     func showPost(post: Post, user: User) {
-        titleLabel.text = post.title?.capitalized
-        bodyLabel.text = post.body?.capitalized
+        titleLabel.text = post.title.capitalized
+        bodyLabel.text = post.body.capitalized
 
         userTitleLabel.text = Strings.authorTitle.localized()
-        
-        if let username = user.username {
-            userNameLabel.text =  String(format: NSLocalizedString(Strings.usernameTitle.localized(), comment: ""), username)
-        }
 
-        if let email = user.email {
-            userEmailLabel.text = String(format: NSLocalizedString(Strings.emailTitle.localized(), comment: ""), email)
-        }
+        userNameLabel.text =  String(format: NSLocalizedString(Strings.usernameTitle.localized(), comment: ""), user.username )
+
+        userEmailLabel.text = String(format: NSLocalizedString(Strings.emailTitle.localized(), comment: ""), user.email)
 
         if let street = user.address?.street {
             addressStreetLabel.text = String(format: NSLocalizedString(Strings.addressTitle.localized(), comment: ""), street)

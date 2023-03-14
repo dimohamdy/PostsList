@@ -10,7 +10,7 @@ import UIKit
 
 protocol PostsListPresenterInput: BasePresenterInput {
     func open(indexPath: IndexPath)
-    func getPost()
+    func getPosts()
 }
 
 protocol PostsListPresenterOutput: BasePresenterOutput {
@@ -37,7 +37,7 @@ final class PostsListPresenter {
     // internal
     private var posts: [Post] = []
 
-    private let logger: LoggerProtocol// = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: PostsListPresenter.self))
+    private let logger: LoggerProtocol
 
     // MARK: Init
     init(postsRepository: PostsRepository,
@@ -68,44 +68,43 @@ final class PostsListPresenter {
 
 // MARK: - PostsListPresenterInput
 extension PostsListPresenter: PostsListPresenterInput {
-    func viewDidLoad() {
-    }
-
-    func saveData() {
-        // Get the whole data for the offline usage
-        if reachable.isConnected {
-            Task {
-                do {
-                    // Save Posts
-                    try localPostsRepository.savePosts()
-
-                    if let users = try? await usersRepository.getUsers(), !users.isEmpty {
-                        // Save users
-                        try localUsersRepository.saveUsers()
-                    }
-
-                } catch let error {
-                    logger.log(error.localizedDescription, level: .error)
-                }
-            }
-        }
-    }
 
     func open(indexPath: IndexPath) {
         let post = posts[indexPath.row]
         router.navigateToPostDetails(post: post)
     }
 
-    func getPost() {
+    func viewDidLoad() {
+        getPosts()
+    }
+
+    func saveUsersDataForOfflineUsage() {
+        // Get the whole data for the offline usage
+        Task {
+            do {
+                if let users = try? await usersRepository.getUsers(), !users.isEmpty {
+                    localUsersRepository.deleteUsers() // clear the data base
+                    // Save users
+                    try localUsersRepository.saveUsers()
+                }
+
+            } catch let error {
+                logger.log(error.localizedDescription, level: .error)
+            }
+        }
+    }
+
+
+    func getPosts() {
         guard reachable.isConnected else {
-            getDataOffline()
+            getPostsDataOffline()
             return
         }
 
-        getDataOnline()
+        getPostsDataOnline()
     }
 
-    private func getDataOffline() {
+    private func getPostsDataOffline() {
         Task {
             //output?.updateData(error: PostsListError.noInternetConnection)
             if let postsFromDatabase = try? await localPostsRepository.getPosts() {
@@ -122,12 +121,18 @@ extension PostsListPresenter: PostsListPresenterInput {
         }
     }
 
-    private func getDataOnline(){
+    private func getPostsDataOnline(){
         output?.showLoading()
         Task {
             do {
-                posts = try await postsRepository.getPosts()
-                saveData()
+                guard let posts = try? await postsRepository.getPosts(), !posts.isEmpty else {
+                    getPostsDataOffline()
+                    return
+                }
+                // Save Posts
+                localPostsRepository.deletePosts()
+                try localPostsRepository.savePosts()
+
                 let postsSections = prepareData(posts: posts, isOnline: true)
                 DispatchQueue.main.async { [self] in
 

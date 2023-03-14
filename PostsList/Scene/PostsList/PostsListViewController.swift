@@ -22,11 +22,11 @@ final class PostsListViewController: UIViewController {
         tableView.backgroundColor = .systemBackground
         tableView.keyboardDismissMode = .onDrag
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .tertiaryLabel
         return tableView
     }()
 
-    private let presenter: PostsListPresenterInput
+    let presenter: PostsListPresenterInput
 
     init(presenter: PostsListPresenterInput) {
         self.presenter = presenter
@@ -44,12 +44,11 @@ final class PostsListViewController: UIViewController {
         presenter.viewDidLoad()
         setupUI()
         configureNavigationBar()
-        presenter.getPost()
     }
 
     // MARK: - Setup UI
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .green
         view.addSubview(postsTableView)
         NSLayoutConstraint.activate([
             postsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -74,7 +73,7 @@ final class PostsListViewController: UIViewController {
 
     @objc
     private func refresh() {
-        presenter.getPost()
+        presenter.getPosts()
     }
 }
 
@@ -91,7 +90,7 @@ extension PostsListViewController: PostsListPresenterOutput {
     func emptyState(emptyPlaceHolderType: EmptyPlaceHolderType) {
         clearTableView()
         postsTableView.setEmptyView(emptyPlaceHolderType: emptyPlaceHolderType, completionBlock: { [weak self] in
-            self?.presenter.getPost()
+            self?.presenter.getPosts()
         })
     }
 

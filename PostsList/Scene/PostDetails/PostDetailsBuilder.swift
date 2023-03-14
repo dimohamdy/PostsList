@@ -9,9 +9,9 @@ import UIKit
 
 struct PostDetailsBuilder {
 
-    static func viewController(post: Post, dataProviderType: DataProviderType) -> PostDetailsViewController {
+    static func viewController(post: Post, dataProvider: DataProviderProtocol) -> PostDetailsViewController {
        let logger = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: PostsListPresenter.self))
-        let presenter = PostDetailsPresenter(post: post, dataProviderType: dataProviderType, logger: logger)
+        let presenter = PostDetailsPresenter(post: post, dataProvider: dataProvider, logger: logger)
         let viewController: PostDetailsViewController = PostDetailsViewController(presenter: presenter)
         presenter.output = viewController
         return viewController

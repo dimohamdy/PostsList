@@ -18,16 +18,19 @@ final class PostDetailsPresenter {
 
     // MARK: Injections
     weak var output: PostDetailsPresenterOutput?
-    var postsRepository: PostsRepository
-    var usersRepository: UsersRepository
-    let post: Post
+
+    private var postsRepository: PostsRepository
+    private var usersRepository: UsersRepository
+    private var dataProvider: DataProviderProtocol
+    private let post: Post
 
     private let logger: LoggerProtocol
 
     // MARK: Init
-    init(post: Post, dataProviderType: DataProviderType, logger: LoggerProtocol) {
-        self.postsRepository = dataProviderType.posts
-        self.usersRepository = dataProviderType.users
+    init(post: Post, dataProvider: DataProviderProtocol, logger: LoggerProtocol) {
+        self.postsRepository = dataProvider.getDataProvider().posts
+        self.usersRepository = dataProvider.getDataProvider().users
+        self.dataProvider = dataProvider
         self.post = post
         self.logger = logger
         [Notifications.Reachability.connected.name, Notifications.Reachability.notConnected.name].forEach { notification in
@@ -44,7 +47,7 @@ final class PostDetailsPresenter {
             }
         }
 
-        let provider =  DataProvider.getDataProvider()
+        let provider =  dataProvider.getDataProvider()
         postsRepository = provider.posts
         usersRepository = provider.users
     }
@@ -88,7 +91,7 @@ extension PostDetailsPresenter: PostDetailsPresenterInput {
         }
 
         //MARK: Offline Mode
-        if let userData = try? await DataProvider.getOfflineDataProvider().users.getUser(by: Int(post.userId)) {
+        if let userData = try? await dataProvider.getOfflineDataProvider().users.getUser(by: Int(post.userId)) {
             DispatchQueue.main.async { [self] in
 
                 output?.showPost(post: post, user: userData)

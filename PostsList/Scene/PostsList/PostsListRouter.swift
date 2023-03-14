@@ -10,9 +10,8 @@ import Foundation
 class PostsListRouter {
     weak var viewController: PostsListViewController?
 
-    func navigateToPostDetails(post: Post) {
-        let dataProviderType = DataProvider.getDataProvider()
-        let addPostViewController = PostDetailsBuilder.viewController(post: post, dataProviderType: dataProviderType)
+    func navigateToPostDetails(dataProvider: DataProviderProtocol = DataProvider(), post: Post) {
+        let addPostViewController = PostDetailsBuilder.viewController(post: post, dataProvider: dataProvider)
         viewController?.navigationController?.pushViewController(addPostViewController, animated: true)
     }
 

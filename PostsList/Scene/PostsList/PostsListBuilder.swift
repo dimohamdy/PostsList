@@ -9,19 +9,19 @@ import UIKit
 
 struct PostsListBuilder {
 
-    static func viewController() -> PostsListViewController {
+    static func viewController(dataProvider: DataProviderProtocol = DataProvider(), reachable: Reachable = Reachability.shared) -> PostsListViewController {
         let logger = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: PostsListPresenter.self))
 
-        let onlineProviderOnline = DataProvider.getOnlineDataProvider()
-        let offlineProviderOnline = DataProvider.getOfflineDataProvider()
+        let onlineProvider = dataProvider.getOnlineDataProvider()
+        let offlineProvider = dataProvider.getOfflineDataProvider()
         let router = PostsListRouter()
 
-        let presenter = PostsListPresenter(postsRepository: onlineProviderOnline.posts,
-                                           localPostsRepository: offlineProviderOnline.posts,
-                                           usersRepository: onlineProviderOnline.users,
-                                           localUsersRepository: offlineProviderOnline.users,
+        let presenter = PostsListPresenter(postsRepository: onlineProvider.posts,
+                                           localPostsRepository: offlineProvider.posts,
+                                           usersRepository: onlineProvider.users,
+                                           localUsersRepository: offlineProvider.users,
                                            router: router,
-                                           reachable: Reachability.shared,
+                                           reachable: reachable,
                                            logger: logger)
         let viewController: PostsListViewController = PostsListViewController(presenter: presenter)
         presenter.output = viewController

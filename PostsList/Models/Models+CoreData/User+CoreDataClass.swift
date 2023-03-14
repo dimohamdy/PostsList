@@ -18,13 +18,13 @@ public class User: NSManagedObject {
 
         self.init(context: context)
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        address = try values.decodeIfPresent(Address.self, forKey: .address)
-        company = try values.decodeIfPresent(Company.self, forKey: .company)
-        email = try values.decodeIfPresent(String.self, forKey: .email)
-        id = try values.decodeIfPresent(Int32.self, forKey: .id) ?? 0
-        name = try values.decodeIfPresent(String.self, forKey: .name)
-        phone = try values.decodeIfPresent(String.self, forKey: .phone)
-        username = try values.decodeIfPresent(String.self, forKey: .username)
-        website = try values.decodeIfPresent(String.self, forKey: .website)
+        address = try values.decode(Address.self, forKey: .address)
+        company = try values.decode(Company.self, forKey: .company)
+        email = try values.decode(String.self, forKey: .email)
+        id = try values.decode(Int32.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        phone = try values.decode(String.self, forKey: .phone)
+        username = try values.decode(String.self, forKey: .username)
+        website = try values.decode(String.self, forKey: .website)
     }
 }

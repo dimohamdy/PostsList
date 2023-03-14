@@ -16,4 +16,5 @@ protocol UsersRepository {
 protocol LocalUsersRepository {
 
     func saveUsers() throws
+    func deleteUsers()
 }

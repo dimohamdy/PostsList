@@ -11,9 +11,11 @@ import CoreData
 final class CoreDataUsersRepository: UsersRepository, LocalUsersRepository {
 
     let managedObjectContext: NSManagedObjectContext
+    let logger: LoggerProtocol
 
-    init(managedObjectContext: NSManagedObjectContext) {
+    init(managedObjectContext: NSManagedObjectContext, logger: LoggerProtocol) {
         self.managedObjectContext = managedObjectContext
+        self.logger = logger
     }
 
     func getUsers() async throws -> [User] {
@@ -31,18 +33,26 @@ final class CoreDataUsersRepository: UsersRepository, LocalUsersRepository {
 
     func getUser(by userID: Int) async throws -> User? {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-//        fetchRequest.fetchLimit = 1
-
         fetchRequest.predicate = NSPredicate(format: "id = %i", userID)
 
-        // Fetch a single object. If the object does not exist,
-        // nil is returned
         let user = try? managedObjectContext.fetch(fetchRequest).first
-
         return user
     }
 
     func saveUsers() throws {
         try managedObjectContext.save()
+    }
+
+    func deleteUsers() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try managedObjectContext.execute(deleteRequest)
+            try managedObjectContext.save()
+        }
+        catch let nserror as NSError {
+            logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+        }
     }
 }
