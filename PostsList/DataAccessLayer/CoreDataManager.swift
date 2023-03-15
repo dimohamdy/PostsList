@@ -56,16 +56,8 @@ class CoreDataManager: LocalDataProtocol {
     }
 
     func reset() {
-        let stores = persistentContainer.persistentStoreCoordinator.persistentStores
-        guard !stores.isEmpty else {
-            fatalError("No store found")
-        }
-        stores.forEach { store in
-            guard let url = store.url else { fatalError("No store URL found")}
-
-            try! FileManager.default.removeItem(at: url)
-            NSPersistentStoreCoordinator.destroyStoreAtURL(url: url)
-        }
+        deletePosts()
+        deleteUsers()
     }
 
     func deletePosts() {
