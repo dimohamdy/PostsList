@@ -21,13 +21,13 @@ struct DataProvider: DataProviderProtocol {
         return (WebPostsRepository(), WebUsersRepository())
     }
 
-    // TODO: Make this function cleaner
     func getOfflineDataProvider() -> (posts: PostsRepository&LocalPostsRepository, users: UsersRepository&LocalUsersRepository) {
         let viewContext = CoreDataManager.shared.viewContext
         let proxyLoggerForCoreDataPostsRepository = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: CoreDataPostsRepository.self))
         let proxyLoggerForCoreDataUsersRepository = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: CoreDataUsersRepository.self))
-        return (CoreDataPostsRepository(managedObjectContext: viewContext, logger: proxyLoggerForCoreDataPostsRepository),
-                CoreDataUsersRepository(managedObjectContext: viewContext, logger: proxyLoggerForCoreDataUsersRepository))
+        let coreDataPostsRepository = CoreDataPostsRepository(managedObjectContext: viewContext, logger: proxyLoggerForCoreDataPostsRepository)
+        let coreDataUsersRepository = CoreDataUsersRepository(managedObjectContext: viewContext, logger: proxyLoggerForCoreDataUsersRepository)
+        return (coreDataPostsRepository, coreDataUsersRepository)
     }
 
     func getDataProvider() -> DataProviderType {

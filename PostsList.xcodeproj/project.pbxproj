@@ -9,14 +9,11 @@
 /* Begin PBXBuildFile section */
 		33478CCF29BE7BE60097ECC2 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB429BE7BE40097ECC2 /* NetworkMock.swift */; };
 		33478CD029BE7BE60097ECC2 /* MockReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB529BE7BE40097ECC2 /* MockReachability.swift */; };
-		33478CD129BE7BE60097ECC2 /* EmptyPlaceHolderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB629BE7BE40097ECC2 /* EmptyPlaceHolderViewTests.swift */; };
 		33478CD229BE7BE60097ECC2 /* WebPostsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB729BE7BE50097ECC2 /* WebPostsRepositoryTests.swift */; };
-		33478CD429BE7BE60097ECC2 /* UIView+LoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB929BE7BE50097ECC2 /* UIView+LoadingTests.swift */; };
 		33478CD529BE7BE60097ECC2 /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 33478CBB29BE7BE50097ECC2 /* Posts.json */; };
 		33478CD629BE7BE60097ECC2 /* NoPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 33478CBC29BE7BE50097ECC2 /* NoPosts.json */; };
 		33478CD729BE7BE60097ECC2 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CBD29BE7BE50097ECC2 /* DataLoader.swift */; };
 		33478CD829BE7BE60097ECC2 /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CBE29BE7BE50097ECC2 /* PostTests.swift */; };
-		33478CD929BE7BE60097ECC2 /* AddLocationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CC029BE7BE50097ECC2 /* AddLocationViewControllerTests.swift */; };
 		33478CDA29BE7BE60097ECC2 /* PostsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CC129BE7BE50097ECC2 /* PostsListViewControllerTests.swift */; };
 		33478CE229BE7BE60097ECC2 /* XCTestCase+AsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CCC29BE7BE50097ECC2 /* XCTestCase+AsyncTest.swift */; };
 		33478CE329BE7BE60097ECC2 /* PhotosListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CCD29BE7BE50097ECC2 /* PhotosListPresenterTests.swift */; };
@@ -89,6 +86,8 @@
 		33A6E3FA29BB6E8E00FA2398 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3F929BB6E8E00FA2398 /* Company.swift */; };
 		33A6E3FC29BB6EC900FA2398 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3FB29BB6EC900FA2398 /* Address.swift */; };
 		33A6E3FE29BB70FC00FA2398 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3FD29BB70FC00FA2398 /* Geo.swift */; };
+		33D614B529C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614B329C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift */; };
+		33D614B629C1EF4F00E9ABB3 /* UIView+LoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614B429C1EF4F00E9ABB3 /* UIView+LoadingTests.swift */; };
 		33F68CBE29BB9D7900534860 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CBD29BB9D7900534860 /* UsersRepository.swift */; };
 		33F68CC129BB9E0700534860 /* WebUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CC029BB9E0700534860 /* WebUsersRepository.swift */; };
 		33F68CC329BC0E8E00534860 /* CoreDataPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CC229BC0E8E00534860 /* CoreDataPostsRepository.swift */; };
@@ -115,14 +114,11 @@
 /* Begin PBXFileReference section */
 		33478CB429BE7BE40097ECC2 /* NetworkMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
 		33478CB529BE7BE40097ECC2 /* MockReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockReachability.swift; sourceTree = "<group>"; };
-		33478CB629BE7BE40097ECC2 /* EmptyPlaceHolderViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyPlaceHolderViewTests.swift; sourceTree = "<group>"; };
 		33478CB729BE7BE50097ECC2 /* WebPostsRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPostsRepositoryTests.swift; sourceTree = "<group>"; };
-		33478CB929BE7BE50097ECC2 /* UIView+LoadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingTests.swift"; sourceTree = "<group>"; };
 		33478CBB29BE7BE50097ECC2 /* Posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Posts.json; sourceTree = "<group>"; };
 		33478CBC29BE7BE50097ECC2 /* NoPosts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoPosts.json; sourceTree = "<group>"; };
 		33478CBD29BE7BE50097ECC2 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		33478CBE29BE7BE50097ECC2 /* PostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
-		33478CC029BE7BE50097ECC2 /* AddLocationViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewControllerTests.swift; sourceTree = "<group>"; };
 		33478CC129BE7BE50097ECC2 /* PostsListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsListViewControllerTests.swift; sourceTree = "<group>"; };
 		33478CCC29BE7BE50097ECC2 /* XCTestCase+AsyncTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AsyncTest.swift"; sourceTree = "<group>"; };
 		33478CCD29BE7BE50097ECC2 /* PhotosListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosListPresenterTests.swift; sourceTree = "<group>"; };
@@ -197,6 +193,8 @@
 		33A6E3F929BB6E8E00FA2398 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		33A6E3FB29BB6EC900FA2398 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		33A6E3FD29BB70FC00FA2398 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
+		33D614B329C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyPlaceHolderViewTests.swift; sourceTree = "<group>"; };
+		33D614B429C1EF4F00E9ABB3 /* UIView+LoadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingTests.swift"; sourceTree = "<group>"; };
 		33F68CBD29BB9D7900534860 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		33F68CC029BB9E0700534860 /* WebUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebUsersRepository.swift; sourceTree = "<group>"; };
 		33F68CC229BC0E8E00534860 /* CoreDataPostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPostsRepository.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		33478CBF29BE7BE50097ECC2 /* SnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
-				33478CC029BE7BE50097ECC2 /* AddLocationViewControllerTests.swift */,
 				33478CC129BE7BE50097ECC2 /* PostsListViewControllerTests.swift */,
 			);
 			path = SnapshotTests;
@@ -380,11 +377,10 @@
 		33A6E30629BA662800FA2398 /* PostsListTests */ = {
 			isa = PBXGroup;
 			children = (
+				33D614B229C1EF4F00E9ABB3 /* ViewsTests */,
 				33478CBA29BE7BE50097ECC2 /* DataLoader */,
-				33478CB629BE7BE40097ECC2 /* EmptyPlaceHolderViewTests.swift */,
 				33478CEA29BE8A580097ECC2 /* TestModels */,
 				33478CB329BE7BE40097ECC2 /* Mocker */,
-				33478CB929BE7BE50097ECC2 /* UIView+LoadingTests.swift */,
 				33478CCD29BE7BE50097ECC2 /* PhotosListPresenterTests.swift */,
 				33478CBF29BE7BE50097ECC2 /* SnapshotTests */,
 				33478CB729BE7BE50097ECC2 /* WebPostsRepositoryTests.swift */,
@@ -554,6 +550,15 @@
 			name = "Models+CoreData";
 			path = "PostsList/Models/Models+CoreData";
 			sourceTree = SOURCE_ROOT;
+		};
+		33D614B229C1EF4F00E9ABB3 /* ViewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				33D614B329C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift */,
+				33D614B429C1EF4F00E9ABB3 /* UIView+LoadingTests.swift */,
+			);
+			path = ViewsTests;
+			sourceTree = "<group>";
 		};
 		33F68CBF29BB9DFF00534860 /* UsersRepository */ = {
 			isa = PBXGroup;
@@ -775,21 +780,20 @@
 				33478CE229BE7BE60097ECC2 /* XCTestCase+AsyncTest.swift in Sources */,
 				33478D0429C1B7E00097ECC2 /* MockNoCoreDataPostsRepository.swift in Sources */,
 				33478D0529C1B7E00097ECC2 /* MockNoCoreDataUsersRepository.swift in Sources */,
+				33D614B629C1EF4F00E9ABB3 /* UIView+LoadingTests.swift in Sources */,
 				33478CD829BE7BE60097ECC2 /* PostTests.swift in Sources */,
-				33478CD429BE7BE60097ECC2 /* UIView+LoadingTests.swift in Sources */,
 				33478CF329BF9CE80097ECC2 /* MockDataProvider.swift in Sources */,
 				33478CD029BE7BE60097ECC2 /* MockReachability.swift in Sources */,
 				33478CFB29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift in Sources */,
 				33A6E30829BA662800FA2398 /* PostsListTests.swift in Sources */,
 				33478CFF29C155280097ECC2 /* MockNoDataProvider.swift in Sources */,
 				33478CDA29BE7BE60097ECC2 /* PostsListViewControllerTests.swift in Sources */,
-				33478CD129BE7BE60097ECC2 /* EmptyPlaceHolderViewTests.swift in Sources */,
 				33478CCF29BE7BE60097ECC2 /* NetworkMock.swift in Sources */,
-				33478CD929BE7BE60097ECC2 /* AddLocationViewControllerTests.swift in Sources */,
 				33478CFD29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift in Sources */,
 				33478CD229BE7BE60097ECC2 /* WebPostsRepositoryTests.swift in Sources */,
 				33478CD729BE7BE60097ECC2 /* DataLoader.swift in Sources */,
 				33478CE329BE7BE60097ECC2 /* PhotosListPresenterTests.swift in Sources */,
+				33D614B529C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift in Sources */,
 				33478CEC29BE8A850097ECC2 /* UserTests.swift in Sources */,
 				33478CEE29BE93870097ECC2 /* WebUsersRepositoryTests.swift in Sources */,
 			);

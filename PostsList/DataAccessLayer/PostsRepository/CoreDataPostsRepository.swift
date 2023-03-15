@@ -18,7 +18,7 @@ final class CoreDataPostsRepository: PostsRepository, LocalPostsRepository {
         self.logger = logger
     }
 
-    func getPosts() async throws -> [Post] {
+    func getPosts() async throws -> Posts {
         // Create Fetch Request
         let fetchRequest: NSFetchRequest<Post> = Post.fetchRequest()
 

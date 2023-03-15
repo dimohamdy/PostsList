@@ -39,7 +39,7 @@ final class PostsListPresenter {
     let reachable: Reachable
 
     // internal
-    private var posts: [Post] = []
+    private var posts: Posts = []
 
     private let logger: LoggerProtocol
 
@@ -165,7 +165,7 @@ extension PostsListPresenter: PostsListPresenterInput {
         }
     }
 
-    func prepareData(posts: [Post], isOnline: Bool) -> [TableViewSectionType] {
+    func prepareData(posts: Posts, isOnline: Bool) -> [TableViewSectionType] {
         var postsSections: [TableViewSectionType] = [TableViewSectionType]()
         if !posts.isEmpty {
             postsSections.append(isOnline ? .online(posts: posts.map({ $0 }))  : .local(posts: posts.map({ $0 })))

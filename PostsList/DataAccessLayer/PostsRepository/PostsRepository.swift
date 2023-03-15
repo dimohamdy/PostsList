@@ -9,7 +9,7 @@ import Foundation
 
 protocol PostsRepository {
 
-    func getPosts() async throws -> [Post]
+    func getPosts() async throws -> Posts
     func getPost(by postID: Int) async throws -> Post?
 }
 

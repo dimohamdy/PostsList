@@ -18,7 +18,7 @@ final class CoreDataUsersRepository: UsersRepository, LocalUsersRepository {
         self.logger = logger
     }
 
-    func getUsers() async throws -> [User] {
+    func getUsers() async throws -> Users {
         // Create Fetch Request
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
 

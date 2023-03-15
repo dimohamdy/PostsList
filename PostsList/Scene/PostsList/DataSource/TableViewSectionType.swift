@@ -8,6 +8,6 @@
 import Foundation
 
 enum TableViewSectionType {
-    case online(posts: [Post])
-    case local(posts: [Post])
+    case online(posts: Posts)
+    case local(posts: Posts)
 }

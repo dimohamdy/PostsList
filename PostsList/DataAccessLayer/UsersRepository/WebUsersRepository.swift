@@ -15,7 +15,7 @@ final class WebUsersRepository: UsersRepository {
         self.client = client
     }
 
-    func getUsers() async throws -> [User] {
+    func getUsers() async throws -> Users {
         guard let path = APILinksFactory.API.users.path,
               let url = URL(string: path) else {
             throw PostsListError.wrongURL

@@ -27,6 +27,15 @@ final class PostsListUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
+        let tablesQuery = app.tables
+        XCTAssertEqual(tablesQuery.tableRows.count, 100)
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Optio Molestias Id Quia Eum"]/*[[".cells.staticTexts[\"Optio Molestias Id Quia Eum\"]",".staticTexts[\"Optio Molestias Id Quia Eum\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let postsButton = app.navigationBars["Post Details"].buttons["Posts"]
+        postsButton.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Est Et Quae Odit Qui Non"]/*[[".cells.staticTexts[\"Est Et Quae Odit Qui Non\"]",".staticTexts[\"Est Et Quae Odit Qui Non\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        postsButton.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Repellendus Qui Recusandae Incidunt Voluptates Tenetur Qui Omnis Exercitationem"]/*[[".cells.staticTexts[\"Repellendus Qui Recusandae Incidunt Voluptates Tenetur Qui Omnis Exercitationem\"]",".staticTexts[\"Repellendus Qui Recusandae Incidunt Voluptates Tenetur Qui Omnis Exercitationem\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Temporibus Sit Alias Delectus Eligendi Possimus Magni"]/*[[".cells.staticTexts[\"Temporibus Sit Alias Delectus Eligendi Possimus Magni\"]",".staticTexts[\"Temporibus Sit Alias Delectus Eligendi Possimus Magni\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 

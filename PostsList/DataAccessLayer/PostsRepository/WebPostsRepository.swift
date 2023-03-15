@@ -15,7 +15,7 @@ final class WebPostsRepository: PostsRepository {
         self.client = client
     }
 
-    func getPosts() async throws -> [Post] {
+    func getPosts() async throws -> Posts {
         guard let path = APILinksFactory.API.posts.path,
               let url = URL(string: path) else {
             throw PostsListError.wrongURL

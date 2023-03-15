@@ -9,7 +9,7 @@ import Foundation
 
 protocol UsersRepository {
 
-    func getUsers() async throws -> [User]
+    func getUsers() async throws -> Users
     func getUser(by userID: Int) async throws -> User?
 }
 
