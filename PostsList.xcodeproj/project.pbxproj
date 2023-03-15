@@ -29,6 +29,9 @@
 		33478CF929BFA26B0097ECC2 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 33478CF829BFA26B0097ECC2 /* SnapshotTesting */; };
 		33478CFB29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CFA29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift */; };
 		33478CFD29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CFC29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift */; };
+		33478CFF29C155280097ECC2 /* MockNoDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CFE29C155280097ECC2 /* MockNoDataProvider.swift */; };
+		33478D0429C1B7E00097ECC2 /* MockNoCoreDataPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478D0229C1B7E00097ECC2 /* MockNoCoreDataPostsRepository.swift */; };
+		33478D0529C1B7E00097ECC2 /* MockNoCoreDataUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478D0329C1B7E00097ECC2 /* MockNoCoreDataUsersRepository.swift */; };
 		3372223729BCF45200332FA7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372223629BCF45200332FA7 /* CoreDataManager.swift */; };
 		3372223929BDD7C700332FA7 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372223829BDD7C700332FA7 /* DataProvider.swift */; };
 		3372223B29BDFB7700332FA7 /* ProxyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372223A29BDFB7700332FA7 /* ProxyLogger.swift */; };
@@ -132,6 +135,9 @@
 		33478CF229BF9CE80097ECC2 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		33478CFA29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataPostsRepository.swift; sourceTree = "<group>"; };
 		33478CFC29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataUsersRepository.swift; sourceTree = "<group>"; };
+		33478CFE29C155280097ECC2 /* MockNoDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNoDataProvider.swift; sourceTree = "<group>"; };
+		33478D0229C1B7E00097ECC2 /* MockNoCoreDataPostsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoCoreDataPostsRepository.swift; sourceTree = "<group>"; };
+		33478D0329C1B7E00097ECC2 /* MockNoCoreDataUsersRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoCoreDataUsersRepository.swift; sourceTree = "<group>"; };
 		3372223629BCF45200332FA7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3372223829BDD7C700332FA7 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		3372223A29BDFB7700332FA7 /* ProxyLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyLogger.swift; sourceTree = "<group>"; };
@@ -231,9 +237,8 @@
 			children = (
 				33478CB429BE7BE40097ECC2 /* NetworkMock.swift */,
 				33478CB529BE7BE40097ECC2 /* MockReachability.swift */,
-				33478CF229BF9CE80097ECC2 /* MockDataProvider.swift */,
-				33478CFA29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift */,
-				33478CFC29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift */,
+				33478D0129C1B7E00097ECC2 /* MockNoCoreData */,
+				33478D0029C1B7CA0097ECC2 /* MockCoreData */,
 			);
 			path = Mocker;
 			sourceTree = "<group>";
@@ -291,6 +296,26 @@
 				3372223829BDD7C700332FA7 /* DataProvider.swift */,
 			);
 			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		33478D0029C1B7CA0097ECC2 /* MockCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				33478CF229BF9CE80097ECC2 /* MockDataProvider.swift */,
+				33478CFA29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift */,
+				33478CFC29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift */,
+			);
+			path = MockCoreData;
+			sourceTree = "<group>";
+		};
+		33478D0129C1B7E00097ECC2 /* MockNoCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				33478CFE29C155280097ECC2 /* MockNoDataProvider.swift */,
+				33478D0229C1B7E00097ECC2 /* MockNoCoreDataPostsRepository.swift */,
+				33478D0329C1B7E00097ECC2 /* MockNoCoreDataUsersRepository.swift */,
+			);
+			path = MockNoCoreData;
 			sourceTree = "<group>";
 		};
 		3372223C29BDFF1100332FA7 /* Logger */ = {
@@ -752,12 +777,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				33478CE229BE7BE60097ECC2 /* XCTestCase+AsyncTest.swift in Sources */,
+				33478D0429C1B7E00097ECC2 /* MockNoCoreDataPostsRepository.swift in Sources */,
+				33478D0529C1B7E00097ECC2 /* MockNoCoreDataUsersRepository.swift in Sources */,
 				33478CD829BE7BE60097ECC2 /* PostTests.swift in Sources */,
 				33478CD429BE7BE60097ECC2 /* UIView+LoadingTests.swift in Sources */,
 				33478CF329BF9CE80097ECC2 /* MockDataProvider.swift in Sources */,
 				33478CD029BE7BE60097ECC2 /* MockReachability.swift in Sources */,
 				33478CFB29BFE12C0097ECC2 /* MockCoreDataPostsRepository.swift in Sources */,
 				33A6E30829BA662800FA2398 /* PostsListTests.swift in Sources */,
+				33478CFF29C155280097ECC2 /* MockNoDataProvider.swift in Sources */,
 				33478CDA29BE7BE60097ECC2 /* PostsListViewControllerTests.swift in Sources */,
 				33478CD129BE7BE60097ECC2 /* EmptyPlaceHolderViewTests.swift in Sources */,
 				33478CCF29BE7BE60097ECC2 /* NetworkMock.swift in Sources */,

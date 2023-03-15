@@ -26,7 +26,7 @@ final class PostsListViewController: UIViewController {
         return tableView
     }()
 
-    let presenter: PostsListPresenterInput
+    private let presenter: PostsListPresenterInput
 
     init(presenter: PostsListPresenterInput) {
         self.presenter = presenter

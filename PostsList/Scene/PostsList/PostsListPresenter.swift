@@ -22,7 +22,11 @@ protocol PostsListPresenterOutput: BasePresenterOutput {
 final class PostsListPresenter {
 
     // MARK: Injections
-    weak var output: PostsListPresenterOutput?
+    weak var output: PostsListPresenterOutput? {
+        didSet{
+            getPosts()
+        }
+    }
 
     let postsRepository: PostsRepository
     let localPostsRepository: PostsRepository&LocalPostsRepository
@@ -75,7 +79,6 @@ extension PostsListPresenter: PostsListPresenterInput {
     }
 
     func viewDidLoad() {
-        getPosts()
     }
 
     func saveUsersDataForOfflineUsage() {

@@ -10,13 +10,12 @@ import SnapshotTesting
 @testable import PostsList
 import XCTest
 import Network
-/*
+
 final class PostsListViewControllerTests: XCTestCase {
     var postsListViewController: PostsListViewController!
 
     override func setUp() {
         super.setUp()
-        //CoreDataManager.shared.deletePostsData()
     }
 
     override func tearDown() {
@@ -25,7 +24,11 @@ final class PostsListViewControllerTests: XCTestCase {
 
     func test_snapshot_noInternet_NoOfflinePosts() {
         let expectation = XCTestExpectation()
-        setVC(internetConnectionState: .unsatisfied)
+
+        CoreDataManager.shared.deletePosts()
+        let connectToInternet = MockReachability(internetConnectionState: .unsatisfied)
+        postsListViewController = PostsListBuilder.viewController(dataProvider: MockNoDataProvider(reachability: connectToInternet), reachable: connectToInternet)
+
         // Check the datasource after getPosts result bind to TableView
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
             assertSnapshot(matching: postsListViewController, as: .image)
@@ -65,17 +68,8 @@ final class PostsListViewControllerTests: XCTestCase {
 
 extension PostsListViewControllerTests {
 
-    func getMockWebPostsRepository(mockSession: URLSessionMock) -> WebPostsRepository {
-        let mockAPIClient = APIClient(withSession: mockSession)
-        return WebPostsRepository(client: mockAPIClient)
-    }
-
     func setVC(internetConnectionState: NWPath.Status) {
         let connectToInternet = MockReachability(internetConnectionState: internetConnectionState)
         postsListViewController = PostsListBuilder.viewController(dataProvider: MockDataProvider(reachability: connectToInternet), reachable: connectToInternet)
-        postsListViewController.presenter.viewDidLoad()
-//        return UINavigationController(rootViewController: postsListViewController)
-
     }
 }
-*/

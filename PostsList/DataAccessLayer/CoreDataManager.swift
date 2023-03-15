@@ -15,7 +15,7 @@ protocol LocalDataProtocol {
 
 class CoreDataManager: LocalDataProtocol {
 
-    private let proxyLogger = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: CoreDataManager.self))
+    private let logger = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: CoreDataManager.self))
 
     static let shared = CoreDataManager()
 
@@ -29,7 +29,7 @@ class CoreDataManager: LocalDataProtocol {
         let container = NSPersistentContainer(name: "PostsList")
         container.loadPersistentStores(completionHandler: { [weak self ](_, error) in
             if let error = error as NSError? {
-                self?.proxyLogger.log("Unresolved error \(error), \(error.userInfo)", level: .error)
+                self?.logger.log("Unresolved error \(error), \(error.userInfo)", level: .error)
             }
         })
         return container
@@ -49,7 +49,7 @@ class CoreDataManager: LocalDataProtocol {
                     }
                 } catch {
                     let nserror = error as NSError
-                    proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+                    logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
                 }
             }
         }
@@ -67,15 +67,28 @@ class CoreDataManager: LocalDataProtocol {
             NSPersistentStoreCoordinator.destroyStoreAtURL(url: url)
         }
     }
-}
 
-extension NSPersistentStoreCoordinator {
-    public static func destroyStoreAtURL(url: URL) {
+    func deletePosts() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Post.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
         do {
-            let psc = self.init(managedObjectModel: NSManagedObjectModel())
-            try psc.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
-        } catch let e {
-            print("failed to destroy persistent store at \(url)", e)
+            try viewContext.execute(deleteRequest)
+            try viewContext.save()
+        } catch let nserror as NSError {
+            logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
+        }
+    }
+
+    func deleteUsers() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try viewContext.execute(deleteRequest)
+            try viewContext.save()
+        } catch let nserror as NSError {
+            logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
         }
     }
 }

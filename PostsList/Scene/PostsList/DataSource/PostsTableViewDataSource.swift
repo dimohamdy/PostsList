@@ -42,7 +42,7 @@ final class PostsTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
         switch section {
         case .online(let posts), .local(let posts):
             if let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath) {
-                cell.configCell(postModel: posts[indexPath.row], index: indexPath.row)
+                cell.configCell(postModel: posts[indexPath.row])
                 return cell
             }
         }

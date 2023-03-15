@@ -42,7 +42,7 @@ final class PostTableViewCell: UITableViewCell, CellReusable {
         ])
     }
 
-    func configCell(postModel: Post, index: Int) {
-        titleLabel.text = "\(index) == \(postModel.title.capitalized))"
+    func configCell(postModel: Post) {
+        titleLabel.text = postModel.title.capitalized
     }
 }
