@@ -48,7 +48,6 @@ enum Strings: String {
     case addressTitle = "Address_Title"
     case companyTitle = "Company_Title"
 
-
     func localized() -> String {
         NSLocalizedString(self.rawValue, comment: "")
     }

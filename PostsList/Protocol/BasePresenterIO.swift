@@ -31,44 +31,44 @@ protocol Loading {
 protocol BasePresenterOutput: BaseDisplayLogic, Loading { }
 
 extension BaseDisplayLogic where Self: UIViewController {
-    
+
     func handle(error: PostsListError) {
         showError(error: error)
     }
-    
+
     func showError(error: Error) {
         showError(title: Strings.commonGeneralError.localized(), subtitle: error.localizedDescription)
     }
-    
+
     func showError(title: String, subtitle: String?) {
         showAlert(title: title, subtitle: subtitle, theme: .error)
     }
-    
+
     func showSuccess(title: String, subtitle: String?) {
         showAlert(title: title, subtitle: subtitle, theme: .success)
     }
-    
+
     func showAlert(title: String, subtitle: String?, theme: Theme) {
         let view = MessageView.viewFromNib(layout: .cardView)
         view.configureTheme(theme)
         view.button?.isHidden = true
         view.configureContent(title: title, body: subtitle ?? "")
-        
+
         var successConfig = SwiftMessages.defaultConfig
         successConfig.presentationStyle = .center
         successConfig.preferredStatusBarStyle = .lightContent
         successConfig.presentationContext = .window(windowLevel: UIWindow.Level.normal)
-        
+
         SwiftMessages.show(config: successConfig, view: view)
     }
 }
 
 extension UIViewController: BasePresenterOutput {
-    
+
     func showLoading() {
         view.showLoadingIndicator()
     }
-    
+
     func hideLoading() {
         view.dismissLoadingIndicator()
     }

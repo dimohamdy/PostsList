@@ -17,7 +17,7 @@ class Reachability: Reachable {
 
     static let shared = Reachability()
     private let monitor = NWPathMonitor()
-    
+
     private init() {
 
     }

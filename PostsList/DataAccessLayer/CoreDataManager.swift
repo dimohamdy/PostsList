@@ -20,14 +20,14 @@ class CoreDataManager: LocalDataProtocol {
     static let shared = CoreDataManager()
 
     private init() {
-        
+
     }
 
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PostsList")
-        container.loadPersistentStores(completionHandler: { [weak self ](storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { [weak self ](_, error) in
             if let error = error as NSError? {
                 self?.proxyLogger.log("Unresolved error \(error), \(error.userInfo)", level: .error)
             }
@@ -38,7 +38,7 @@ class CoreDataManager: LocalDataProtocol {
     // MARK: - Core Data Saving support
     lazy var viewContext =  persistentContainer.viewContext
 
-    func saveContext ()  {
+    func saveContext () {
         let context = viewContext
         Task {
             if context.hasChanges {
@@ -54,34 +54,6 @@ class CoreDataManager: LocalDataProtocol {
             }
         }
     }
-
-    //TODO: Remove this function
-//    func deletePostsData() {
-//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Post.fetchRequest()
-//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//        do {
-//            try viewContext.execute(deleteRequest)
-//            try viewContext.save()
-//        }
-//        catch let nserror as NSError {
-//            proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
-//        }
-//    }
-
-//    //TODO: Remove this function
-//    func deleteUsersData() {
-//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
-//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//        do {
-//            try viewContext.execute(deleteRequest)
-//            try viewContext.save()
-//        }
-//        catch let nserror as NSError {
-//            proxyLogger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
-//        }
-//    }
 
     func reset() {
         let stores = persistentContainer.persistentStoreCoordinator.persistentStores

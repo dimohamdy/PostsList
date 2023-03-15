@@ -71,7 +71,7 @@ extension PostDetailsPresenter: PostDetailsPresenterInput {
     }
 
     func getData() async throws {
-        //MARK: online Mode
+        // MARK: online Mode
         DispatchQueue.main.async { [self] in
             output?.showLoading()
         }
@@ -90,7 +90,7 @@ extension PostDetailsPresenter: PostDetailsPresenterInput {
             return
         }
 
-        //MARK: Offline Mode
+        // MARK: Offline Mode
         if let userData = try? await dataProvider.getOfflineDataProvider().users.getUser(by: Int(post.userId)) {
             DispatchQueue.main.async { [self] in
 

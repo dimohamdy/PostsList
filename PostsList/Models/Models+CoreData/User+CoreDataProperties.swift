@@ -45,6 +45,6 @@ extension User {
 
 }
 
-extension User : Identifiable {
+extension User: Identifiable {
 
 }

@@ -94,7 +94,6 @@ extension PostsListPresenter: PostsListPresenterInput {
         }
     }
 
-
     func getPosts() {
         guard reachable.isConnected else {
             getPostsDataOffline()
@@ -106,7 +105,7 @@ extension PostsListPresenter: PostsListPresenterInput {
 
     private func getPostsDataOffline() {
         Task {
-            //output?.updateData(error: PostsListError.noInternetConnection)
+            // output?.updateData(error: PostsListError.noInternetConnection)
             if let postsFromDatabase = try? await localPostsRepository.getPosts() {
                 posts = postsFromDatabase
                 let postsSections = prepareData(posts: posts, isOnline: false)
@@ -121,7 +120,7 @@ extension PostsListPresenter: PostsListPresenterInput {
         }
     }
 
-    private func getPostsDataOnline(){
+    private func getPostsDataOnline() {
         output?.showLoading()
         Task {
             do {
@@ -157,7 +156,7 @@ extension PostsListPresenter: PostsListPresenterInput {
         if notification.name == Notifications.Reachability.notConnected.name {
             DispatchQueue.main.async { [self] in
                 output?.showError(title: Strings.noInternetConnectionTitle.localized(), subtitle: Strings.noInternetConnectionSubtitle.localized())
-                //output?.updateData(error: PostsListError.noInternetConnection)
+                // output?.updateData(error: PostsListError.noInternetConnection)
             }
         }
     }

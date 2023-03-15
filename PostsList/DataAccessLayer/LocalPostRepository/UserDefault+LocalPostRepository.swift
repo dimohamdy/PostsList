@@ -26,7 +26,7 @@ final class UserDefaultLocalPostRepository: LocalPostRepository {
     }
 
     func clearPosts() -> [String] {
-        //userDefaults.removeObject(forKey: UserDefaultsKey.posts.rawValue)
+        // userDefaults.removeObject(forKey: UserDefaultsKey.posts.rawValue)
         return []
     }
 

@@ -50,8 +50,7 @@ final class CoreDataUsersRepository: UsersRepository, LocalUsersRepository {
         do {
             try managedObjectContext.execute(deleteRequest)
             try managedObjectContext.save()
-        }
-        catch let nserror as NSError {
+        } catch let nserror as NSError {
             logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
         }
     }

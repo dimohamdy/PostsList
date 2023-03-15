@@ -82,7 +82,6 @@ final class PostDetailsViewController: UIViewController {
         return stackView
     }()
 
-
     private let presenter: PostDetailsPresenterInput
 
     // MARK: View lifeCycle
@@ -142,7 +141,7 @@ final class PostDetailsViewController: UIViewController {
 
 // MARK: - PostDetailsPresenterOutput
 extension PostDetailsViewController: PostDetailsPresenterOutput {
-    
+
     func showPost(post: Post, user: User) {
         titleLabel.text = post.title.capitalized
         bodyLabel.text = post.body.capitalized

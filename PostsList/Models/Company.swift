@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Company : Decodable {
+extension Company: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case bs

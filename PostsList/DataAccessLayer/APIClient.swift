@@ -27,7 +27,7 @@ final class APIClient {
     init(withSession session: URLSessionProtocol = URLSession.shared, decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
         self.decoder = decoder
-        //TODO: Move this code to better places
+        // TODO: Move this code to better places
         decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.viewContext
     }
 

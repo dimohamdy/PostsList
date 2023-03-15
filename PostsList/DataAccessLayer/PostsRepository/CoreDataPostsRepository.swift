@@ -12,7 +12,7 @@ final class CoreDataPostsRepository: PostsRepository, LocalPostsRepository {
 
     let managedObjectContext: NSManagedObjectContext
     let logger: LoggerProtocol
-    
+
     init(managedObjectContext: NSManagedObjectContext, logger: LoggerProtocol) {
         self.managedObjectContext = managedObjectContext
         self.logger = logger
@@ -56,8 +56,7 @@ final class CoreDataPostsRepository: PostsRepository, LocalPostsRepository {
         do {
             try managedObjectContext.execute(deleteRequest)
             try managedObjectContext.save()
-        }
-        catch let nserror as NSError {
+        } catch let nserror as NSError {
             logger.log("Unresolved error \(nserror), \(nserror.userInfo)", level: .error)
         }
     }

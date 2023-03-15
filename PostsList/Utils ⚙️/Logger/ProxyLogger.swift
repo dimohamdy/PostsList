@@ -9,7 +9,7 @@ import Foundation
 import os.log
 
 class ProxyLogger: LoggerProtocol {
-    
+
     let logger: Logger
 
     init(subsystem: String, category: String) {

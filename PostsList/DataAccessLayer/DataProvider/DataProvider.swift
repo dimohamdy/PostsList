@@ -10,7 +10,7 @@ import Foundation
 typealias DataProviderType = (posts: PostsRepository, users: UsersRepository)
 
 struct DataProvider: DataProviderProtocol {
-    
+
     var reachability: Reachable
 
     init(reachability: Reachable = Reachability.shared) {

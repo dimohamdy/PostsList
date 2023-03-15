@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Geo {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Geo> {
@@ -22,6 +21,6 @@ extension Geo {
 
 }
 
-extension Geo : Identifiable {
+extension Geo: Identifiable {
 
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataProviderProtocol {
-    var reachability: Reachable {set get}
+    var reachability: Reachable {get set}
     func getOnlineDataProvider() -> DataProviderType
     func getOfflineDataProvider() -> (posts: PostsRepository&LocalPostsRepository, users: UsersRepository&LocalUsersRepository)
     func getDataProvider() -> DataProviderType
