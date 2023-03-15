@@ -31,7 +31,9 @@ class ProxyLogger: LoggerProtocol {
             logType = .error
         }
 
-        // Log the modified message to the underlying logger
-        logger.log(level: logType, "ProxyLogger: \(message)")
+        #if DEBUG
+            logger.log(level: logType, "ProxyLogger: \(message)")
+        #endif
+
     }
 }
