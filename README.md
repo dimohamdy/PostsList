@@ -1,24 +1,20 @@
-# RijksMuseum
-
-# Install
-* Add **API_Key** in APILinksFactory.swift
-
+# PostsList
 
 # App Structure
 
 * App structure I use **MVP** with Input-Output approach **Delegate** to notify about updates. I selected **MVP** becasue the app is simpel only 2 screens.
 
-* I used the **Repository** design pattern to act as a Data source from API.
+* I used the **Repository** design pattern to act as a Data source from API and from CoreData.
 
-* I Separated the data source of UITableView to other class **PhotosCollectionViewDataSource**.
+* I Separated the data source of UITableView to other class **PostsTableViewDataSource**.
 
-* I use **CellReusable** protocol and create 2 extensions for UICollectionView to reduce code when reusing the cell.
+* I used **CellReusable** protocol and create 2 extensions for UITableView to reduce code when reusing the cell.
 
-* Used `Reachability.swift` to check the internet connection state.
+* Used `Reachable` and `Reachability.swift` to check the internet connection state.
 
-* Use `DataLoader.swift` to get data from local JSON.
+* Used `LoggerProtocol` and `ProxyLogger.swift` to help me to log the errors.
 
-* I created Extension for UIImageView to download the image from the link.
+* Used `DataLoader.swift` to get data from local JSON.
 
 * I used [SwiftLint](https://github.com/realm/SwiftLint) to enhance Swift style.
 
@@ -28,18 +24,18 @@
 
 * I supported Dark-Light Mode
 
-* I supported Oriantation
-
 ![](ScreenShots/Screen1.png)
 ![](ScreenShots/Screen2.png)
+
+
+# Why CoreData?
+There's a lot of choices to save the data localy like Coredata, Realm, Squlite, File, UserDefault but I decide to go with Coredata and we can disscuss this later.
 
 
 # UnitTest
 * I apply  **Arrange, Act and Assert (AAA) Pattern** [AAA](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80) in Unit Testing.
 * I use mocking to Test get data from  NetworkManager, I use the same JSON file to mock data.
-* Test get data from API and From Local JSON.
-* Code coverage +80%
-![](ScreenShots/Screen3.png)
+* Use ***SnapshotTest*** to Test PostsListViewController
 
 ## Demo
 ![](Demo.gif)
@@ -47,5 +43,4 @@
 ## Info
 
 Name: Dimo Hamdy
-
-Email: dabdelaziz@mobiquityinc.com
+Email: dimo.hamdy@gmail.com
