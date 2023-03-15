@@ -135,6 +135,7 @@ extension PostsListPresenter: PostsListPresenterInput {
                 localPostsRepository.deletePosts()
                 try localPostsRepository.savePosts()
 
+                self.posts = posts
                 let postsSections = prepareData(posts: posts, isOnline: true)
                 DispatchQueue.main.async { [self] in
 
