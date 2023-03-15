@@ -62,13 +62,13 @@ final class PostsListViewController: UIViewController {
     private func configureNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationItem.title = Strings.postListTitle.localized()
-        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsOnSwipe = false
 
         let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
 
         refreshButtonItem.tintColor = .label
 
-        navigationItem.leftBarButtonItem = refreshButtonItem
+        navigationItem.rightBarButtonItem = refreshButtonItem
     }
 
     @objc
