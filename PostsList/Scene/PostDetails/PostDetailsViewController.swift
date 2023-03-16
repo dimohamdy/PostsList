@@ -82,6 +82,13 @@ final class PostDetailsViewController: UIViewController {
         return stackView
     }()
 
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+
     private let presenter: PostDetailsPresenterInput
 
     // MARK: View lifeCycle
@@ -106,19 +113,31 @@ final class PostDetailsViewController: UIViewController {
     // MARK: - Setup UI
     private func setupUI() {
 
+        view.backgroundColor = .systemBackground
+
         [titleLabel, bodyLabel, userTitleLabel, userNameLabel, userEmailLabel, companyNameLabel, addressStreetLabel].forEach {
             stackView.addArrangedSubview($0)
         }
 
-        view.addSubview((stackView))
-
-        view.backgroundColor = .systemBackground
+        scrollView.addSubview(stackView)
+        view.addSubview(scrollView)
 
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+        ])
+
+
+
     }
 
     private func configureNavigationBar() {
@@ -133,7 +152,7 @@ final class PostDetailsViewController: UIViewController {
 
     @objc
     private func refreshPost() {
-
+        presenter.viewDidLoad()
     }
 }
 
