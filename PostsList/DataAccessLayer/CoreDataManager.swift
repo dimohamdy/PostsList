@@ -61,7 +61,7 @@ class CoreDataManager: LocalDataProtocol {
     }
 
     func deletePosts() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Post.fetchRequest()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = PostDAO.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {
@@ -73,7 +73,7 @@ class CoreDataManager: LocalDataProtocol {
     }
 
     func deleteUsers() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserDAO.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {

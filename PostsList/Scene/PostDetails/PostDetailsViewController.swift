@@ -123,10 +123,8 @@ final class PostDetailsViewController: UIViewController {
 
     private func configureNavigationBar() {
         navigationItem.title = Strings.postDetailsTitle.localized()
-        navigationController?.hidesBarsOnSwipe = true
 
         let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshPost))
-
         refreshButtonItem.tintColor = .label
         refreshButtonItem.tag = Tags.refresh.rawValue
 

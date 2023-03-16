@@ -13,7 +13,6 @@ final class MockCoreDataUsersRepository: UsersRepository, LocalUsersRepository {
     var users: Users = []
     lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
         return decoder
     }()
 
@@ -23,7 +22,7 @@ final class MockCoreDataUsersRepository: UsersRepository, LocalUsersRepository {
 
     func getUsers() async throws -> Users {
         if let data = DataLoader().loadJsonData(file: "Users") {
-            users = try decoder.decode(Users.self, from: data)
+            users = try decoder.decode([UserDTO].self, from: data).map({$0.toModel()})
             return users
         } else {
             return []

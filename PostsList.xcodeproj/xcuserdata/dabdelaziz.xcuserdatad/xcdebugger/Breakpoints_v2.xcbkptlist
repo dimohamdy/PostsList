@@ -3,4 +3,406 @@
    uuid = "05323E3A-947F-498B-B29A-E33AC0729F88"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4956C1AA-16C6-4C7E-9263-F467049921FC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "getPostsDataOnline()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A2805AC-5D80-462A-AD68-72B80CDE310A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "getPostsDataOnline()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E034CC14-F16D-4A3F-BE7A-7CD55B652A53"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "getPostsDataOffline()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21B95260-8132-483F-911A-A04819A58AF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/DataAccessLayer/UsersRepository/CoreDataUsersRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "save(users:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "21B95260-8132-483F-911A-A04819A58AF2 - 598630f31d9df40c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostsList.CoreDataUsersRepository.save(users: Swift.Array&lt;PostsList.User&gt;) throws -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/DataAccessLayer/UsersRepository/CoreDataUsersRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "63">
+               </Location>
+               <Location
+                  uuid = "21B95260-8132-483F-911A-A04819A58AF2 - 1559edbb2d61adda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PostsList.User) -&gt; PostsList.UserDAO in PostsList.CoreDataUsersRepository.save(users: Swift.Array&lt;PostsList.User&gt;) throws -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/DataAccessLayer/UsersRepository/CoreDataUsersRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B42463D7-09A7-4758-B3A0-7FF96FE3C14D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "getPostsDataOnline()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B42463D7-09A7-4758-B3A0-7FF96FE3C14D - 57fd139c0854cd0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in PostsList.PostsListPresenter.getPostsDataOnline() -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/Scene/PostsList/PostsListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "708">
+               </Location>
+               <Location
+                  uuid = "B42463D7-09A7-4758-B3A0-7FF96FE3C14D - b5391e1b3661e34e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in PostsList.PostsListPresenter.getPostsDataOnline() -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/Scene/PostsList/PostsListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "697">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18ED8C09-DEE7-4F9E-9997-B13C071A7038"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/DataAccessLayer/PostsRepository/CoreDataPostsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "save(posts:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DAE4D07-8897-4D55-ABE5-B16FB43B86AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/DataAccessLayer/PostsRepository/CoreDataPostsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getPosts()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DAE4D07-8897-4D55-ABE5-B16FB43B86AD - e76cf2d4e4391e07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for PostsList.CoreDataPostsRepository.getPosts() async throws -&gt; Swift.Array&lt;PostsList.Post&gt;"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/DataAccessLayer/PostsRepository/CoreDataPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "267">
+               </Location>
+               <Location
+                  uuid = "2DAE4D07-8897-4D55-ABE5-B16FB43B86AD - f92fae29f590f710"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PostsList.PostDAO) -&gt; PostsList.Post in PostsList.CoreDataPostsRepository.getPosts() async throws -&gt; Swift.Array&lt;PostsList.Post&gt;"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/DataAccessLayer/PostsRepository/CoreDataPostsRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2650EFEC-8EAF-483F-9EE9-6D2CB51994AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/DataAccessLayer/PostsRepository/CoreDataPostsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getPosts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92B97BCF-D941-4263-94C0-043ED6D60CE1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "getPostsDataOffline()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "92B97BCF-D941-4263-94C0-043ED6D60CE1 - 4a7d6806151a0b1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in PostsList.PostsListPresenter.getPostsDataOffline() -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/Scene/PostsList/PostsListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "381">
+               </Location>
+               <Location
+                  uuid = "92B97BCF-D941-4263-94C0-043ED6D60CE1 - a09a9311dfdfa998"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in PostsList.PostsListPresenter.getPostsDataOffline() -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/Scene/PostsList/PostsListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "388">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B9184E8-D009-44BB-BBE2-88F69FD22542"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "updateData(tableSections:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B217532D-8B22-4681-8534-4A51B4FBC639"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/Cells/PostTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "configCell(postModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D71C98B-7CD6-422D-92E6-530128259590"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostDetails/PostDetailsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D907A9F1-ABD1-45BF-8667-E240CDD9E90E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostDetails/PostDetailsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F4E2D3B-9625-4795-8CFB-43AC61CCD2E1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/DataAccessLayer/UsersRepository/CoreDataUsersRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getUser(by:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A57CD008-27B2-4605-BECF-533A5ED41E43"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostsList/Scene/PostsList/PostsListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "saveUsersDataForOfflineUsage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A57CD008-27B2-4605-BECF-533A5ED41E43 - b6d694d8056659ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in PostsList.PostsListPresenter.saveUsersDataForOfflineUsage() -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/Scene/PostsList/PostsListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "451">
+               </Location>
+               <Location
+                  uuid = "A57CD008-27B2-4605-BECF-533A5ED41E43 - 1900bbff1a59fbe5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in PostsList.PostsListPresenter.saveUsersDataForOfflineUsage() -&gt; ()"
+                  moduleName = "PostsList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dabdelaziz/Desktop/PostsList/PostsList/Scene/PostsList/PostsListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "439">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

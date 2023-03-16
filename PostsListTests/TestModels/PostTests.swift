@@ -21,18 +21,17 @@ final class PostTests: XCTestCase {
 
     lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
         return decoder
     }()
 
     func testDecoding_whenMissingRequiredKeys_itThrows() throws {
         try ["userId", "id"].forEach { key in
-            assertThrowsKeyNotFound(key, decoding: Post.self, from: try post.json(deletingKeyPaths: key))
+            assertThrowsKeyNotFound(key, decoding: PostDTO.self, from: try post.json(deletingKeyPaths: key))
         }
     }
 
     func testDecoding_whenPostData_returnsAPostObject() throws {
-       let post = try decoder.decode(Post.self, from: post)
+       let post = try decoder.decode(PostDTO.self, from: post)
         XCTAssertEqual(post.userId, 1)
         XCTAssertEqual(post.id, 1)
         XCTAssertEqual(post.title, "post title")
@@ -40,7 +39,6 @@ final class PostTests: XCTestCase {
     }
 
     func assertThrowsKeyNotFound<T: Decodable>(_ expectedKey: String, decoding: T.Type, from data: Data, file: StaticString = #file, line: UInt = #line) {
-        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
 
         XCTAssertThrowsError(try decoder.decode(decoding, from: data), file: file, line: line) { error in
             if case .keyNotFound(let key, _)? = error as? DecodingError {

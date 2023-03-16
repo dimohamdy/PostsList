@@ -23,7 +23,7 @@ final class PostsListPresenter {
 
     // MARK: Injections
     weak var output: PostsListPresenterOutput? {
-        didSet{
+        didSet {
             getPosts()
         }
     }
@@ -88,7 +88,7 @@ extension PostsListPresenter: PostsListPresenterInput {
                 if let users = try? await usersRepository.getUsers(), !users.isEmpty {
                     localUsersRepository.deleteUsers() // clear the data base
                     // Save users
-                    try localUsersRepository.saveUsers()
+                    try localUsersRepository.save(users: users)
                 }
 
             } catch let error {
@@ -133,7 +133,9 @@ extension PostsListPresenter: PostsListPresenterInput {
                 }
                 // Save Posts
                 localPostsRepository.deletePosts()
-                try localPostsRepository.savePosts()
+                try localPostsRepository.save(posts: posts)
+
+                saveUsersDataForOfflineUsage()
 
                 self.posts = posts
                 let postsSections = prepareData(posts: posts, isOnline: true)

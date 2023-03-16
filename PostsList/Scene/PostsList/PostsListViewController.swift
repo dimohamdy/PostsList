@@ -13,7 +13,7 @@ final class PostsListViewController: UIViewController {
 
     // MARK: Outlets
     private let postsTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.showsHorizontalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
@@ -23,6 +23,7 @@ final class PostsListViewController: UIViewController {
         tableView.keyboardDismissMode = .onDrag
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         tableView.separatorColor = .tertiaryLabel
+        tableView.sectionHeaderTopPadding = 0.0
         return tableView
     }()
 
@@ -62,10 +63,8 @@ final class PostsListViewController: UIViewController {
     private func configureNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         navigationItem.title = Strings.postListTitle.localized()
-        navigationController?.hidesBarsOnSwipe = false
 
         let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
-
         refreshButtonItem.tintColor = .label
 
         navigationItem.rightBarButtonItem = refreshButtonItem

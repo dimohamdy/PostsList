@@ -15,5 +15,5 @@ protocol PostsRepository {
 
 protocol LocalPostsRepository {
     func deletePosts()
-    func savePosts() throws
+    func save(posts: Posts) throws
 }

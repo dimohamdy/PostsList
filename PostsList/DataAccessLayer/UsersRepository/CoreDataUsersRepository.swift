@@ -20,31 +20,32 @@ final class CoreDataUsersRepository: UsersRepository, LocalUsersRepository {
 
     func getUsers() async throws -> Users {
         // Create Fetch Request
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<UserDAO> = UserDAO.fetchRequest()
 
         do {
             // Perform Fetch Request
             let users = try managedObjectContext.fetch(fetchRequest)
-            return users
+            return users.map({ $0.toModel() })
         } catch {
             return []
         }
     }
 
     func getUser(by userID: Int) async throws -> User? {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<UserDAO> = UserDAO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %i", userID)
 
         let user = try? managedObjectContext.fetch(fetchRequest).first
-        return user
+        return user?.toModel()
     }
 
-    func saveUsers() throws {
+    func save(users: Users) throws {
+        _ = users.map({$0.toModel()})
         try managedObjectContext.save()
     }
 
     func deleteUsers() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserDAO.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
         do {

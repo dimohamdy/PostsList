@@ -98,6 +98,7 @@ extension PostDetailsPresenter: PostDetailsPresenterInput {
             }
         } else {
             DispatchQueue.main.async { [self] in
+                // TODO: Add better message
                 output?.showError(title: "NO data", subtitle: "No data to show")
             }
         }

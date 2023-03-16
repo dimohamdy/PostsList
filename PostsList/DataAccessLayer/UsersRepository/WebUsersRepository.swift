@@ -21,8 +21,8 @@ final class WebUsersRepository: UsersRepository {
             throw PostsListError.wrongURL
         }
         // return the value from try direct without set it in another value
-        let users: Users = try await client.loadData(from: url)
-        return users
+        let users: [UserDTO] = try await client.loadData(from: url)
+        return users.map({ $0.toModel() })
     }
 
     func getUser(by userID: Int) async throws -> User? {
@@ -31,8 +31,8 @@ final class WebUsersRepository: UsersRepository {
             throw PostsListError.wrongURL
         }
         // return the value from try direct without set it in another value
-        let user: User? = try? await client.loadData(from: url)
-        return user
+        let user: UserDTO? = try? await client.loadData(from: url)
+        return user?.toModel()
     }
 
 }

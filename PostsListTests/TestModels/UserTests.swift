@@ -38,18 +38,17 @@ final class UserTests: XCTestCase {
 
     lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
         return decoder
     }()
 
     func testDecoding_whenMissingRequiredKeys_itThrows() throws {
         try ["username", "name"].forEach { key in
-            assertThrowsKeyNotFound(key, decoding: User.self, from: try user.json(deletingKeyPaths: key))
+            assertThrowsKeyNotFound(key, decoding: UserDTO.self, from: try user.json(deletingKeyPaths: key))
         }
     }
 
     func testDecoding_whenPostData_returnsAPostObject() throws {
-       let user = try decoder.decode(User.self, from: user)
+       let user = try decoder.decode(UserDTO.self, from: user)
         XCTAssertEqual(user.id, 1)
         XCTAssertEqual(user.name, "Leanne Graham")
         XCTAssertEqual(user.username, "Bret")

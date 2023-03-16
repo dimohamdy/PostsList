@@ -88,6 +88,11 @@
 		33A6E3FE29BB70FC00FA2398 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3FD29BB70FC00FA2398 /* Geo.swift */; };
 		33D614B529C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614B329C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift */; };
 		33D614B629C1EF4F00E9ABB3 /* UIView+LoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614B429C1EF4F00E9ABB3 /* UIView+LoadingTests.swift */; };
+		33D614B929C24CDE00E9ABB3 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614B829C24CDE00E9ABB3 /* UserDTO.swift */; };
+		33D614BC29C24D6F00E9ABB3 /* PostDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614BB29C24D6F00E9ABB3 /* PostDTO.swift */; };
+		33D614C129C24F1E00E9ABB3 /* GeoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614C029C24F1E00E9ABB3 /* GeoDTO.swift */; };
+		33D614C329C2536400E9ABB3 /* AddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614C229C2536400E9ABB3 /* AddressDTO.swift */; };
+		33D614C529C2549500E9ABB3 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614C429C2549500E9ABB3 /* CompanyDTO.swift */; };
 		33F68CBE29BB9D7900534860 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CBD29BB9D7900534860 /* UsersRepository.swift */; };
 		33F68CC129BB9E0700534860 /* WebUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CC029BB9E0700534860 /* WebUsersRepository.swift */; };
 		33F68CC329BC0E8E00534860 /* CoreDataPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CC229BC0E8E00534860 /* CoreDataPostsRepository.swift */; };
@@ -195,6 +200,11 @@
 		33A6E3FD29BB70FC00FA2398 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
 		33D614B329C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyPlaceHolderViewTests.swift; sourceTree = "<group>"; };
 		33D614B429C1EF4F00E9ABB3 /* UIView+LoadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingTests.swift"; sourceTree = "<group>"; };
+		33D614B829C24CDE00E9ABB3 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		33D614BB29C24D6F00E9ABB3 /* PostDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDTO.swift; sourceTree = "<group>"; };
+		33D614C029C24F1E00E9ABB3 /* GeoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoDTO.swift; sourceTree = "<group>"; };
+		33D614C229C2536400E9ABB3 /* AddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDTO.swift; sourceTree = "<group>"; };
+		33D614C429C2549500E9ABB3 /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
 		33F68CBD29BB9D7900534860 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		33F68CC029BB9E0700534860 /* WebUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebUsersRepository.swift; sourceTree = "<group>"; };
 		33F68CC229BC0E8E00534860 /* CoreDataPostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPostsRepository.swift; sourceTree = "<group>"; };
@@ -433,11 +443,11 @@
 			isa = PBXGroup;
 			children = (
 				33A6E3E429BB65BD00FA2398 /* Models+CoreData */,
-				33A6E38829BB4CBA00FA2398 /* User.swift */,
-				33A6E3F929BB6E8E00FA2398 /* Company.swift */,
-				33A6E3FB29BB6EC900FA2398 /* Address.swift */,
-				33A6E3FD29BB70FC00FA2398 /* Geo.swift */,
-				33A6E38929BB4CBA00FA2398 /* Post.swift */,
+				33D614BF29C24DA900E9ABB3 /* Compant */,
+				33D614BE29C24D9F00E9ABB3 /* Address */,
+				33D614BD29C24D9600E9ABB3 /* Geo */,
+				33D614B729C24CCC00E9ABB3 /* User */,
+				33D614BA29C24CF400E9ABB3 /* Post */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -558,6 +568,51 @@
 				33D614B429C1EF4F00E9ABB3 /* UIView+LoadingTests.swift */,
 			);
 			path = ViewsTests;
+			sourceTree = "<group>";
+		};
+		33D614B729C24CCC00E9ABB3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				33A6E38829BB4CBA00FA2398 /* User.swift */,
+				33D614B829C24CDE00E9ABB3 /* UserDTO.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		33D614BA29C24CF400E9ABB3 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				33A6E38929BB4CBA00FA2398 /* Post.swift */,
+				33D614BB29C24D6F00E9ABB3 /* PostDTO.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		33D614BD29C24D9600E9ABB3 /* Geo */ = {
+			isa = PBXGroup;
+			children = (
+				33A6E3FD29BB70FC00FA2398 /* Geo.swift */,
+				33D614C029C24F1E00E9ABB3 /* GeoDTO.swift */,
+			);
+			path = Geo;
+			sourceTree = "<group>";
+		};
+		33D614BE29C24D9F00E9ABB3 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				33A6E3FB29BB6EC900FA2398 /* Address.swift */,
+				33D614C229C2536400E9ABB3 /* AddressDTO.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		33D614BF29C24DA900E9ABB3 /* Compant */ = {
+			isa = PBXGroup;
+			children = (
+				33A6E3F929BB6E8E00FA2398 /* Company.swift */,
+				33D614C429C2549500E9ABB3 /* CompanyDTO.swift */,
+			);
+			path = Compant;
 			sourceTree = "<group>";
 		};
 		33F68CBF29BB9DFF00534860 /* UsersRepository */ = {
@@ -720,6 +775,7 @@
 				33A6E3BF29BB4CBB00FA2398 /* PostsTableViewDataSource.swift in Sources */,
 				33A6E3B329BB4CBB00FA2398 /* User.swift in Sources */,
 				33A6E3F629BB65BD00FA2398 /* User+CoreDataProperties.swift in Sources */,
+				33D614C129C24F1E00E9ABB3 /* GeoDTO.swift in Sources */,
 				33A6E2EE29BA662400FA2398 /* AppDelegate.swift in Sources */,
 				33A6E3F029BB65BD00FA2398 /* Post+CoreDataProperties.swift in Sources */,
 				33A6E3B629BB4CBB00FA2398 /* APIClient.swift in Sources */,
@@ -739,6 +795,7 @@
 				33A6E3B429BB4CBB00FA2398 /* Post.swift in Sources */,
 				33A6E3F829BB65BD00FA2398 /* Post+CoreDataClass.swift in Sources */,
 				33A6E3F129BB65BD00FA2398 /* Geo+CoreDataClass.swift in Sources */,
+				33D614C529C2549500E9ABB3 /* CompanyDTO.swift in Sources */,
 				33F68CC129BB9E0700534860 /* WebUsersRepository.swift in Sources */,
 				33F68CC529BC0F1200534860 /* CoreDataUsersRepository.swift in Sources */,
 				33A6E3B229BB4CBB00FA2398 /* UITableView+ReusableCell.swift in Sources */,
@@ -752,6 +809,7 @@
 				33A6E3C829BB4CBB00FA2398 /* PostDetailsPresenter.swift in Sources */,
 				33A6E3FA29BB6E8E00FA2398 /* Company.swift in Sources */,
 				33478CF029BF94BE0097ECC2 /* DataProviderProtocol.swift in Sources */,
+				33D614B929C24CDE00E9ABB3 /* UserDTO.swift in Sources */,
 				33A6E3BD29BB4CBB00FA2398 /* AppAppearance.swift in Sources */,
 				33A6E3F229BB65BD00FA2398 /* Geo+CoreDataProperties.swift in Sources */,
 				33F68CC329BC0E8E00534860 /* CoreDataPostsRepository.swift in Sources */,
@@ -769,6 +827,8 @@
 				3372223929BDD7C700332FA7 /* DataProvider.swift in Sources */,
 				3372223B29BDFB7700332FA7 /* ProxyLogger.swift in Sources */,
 				33A6E3A929BB4CBB00FA2398 /* BasePresenterIO.swift in Sources */,
+				33D614C329C2536400E9ABB3 /* AddressDTO.swift in Sources */,
+				33D614BC29C24D6F00E9ABB3 /* PostDTO.swift in Sources */,
 				33A6E3FE29BB70FC00FA2398 /* Geo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

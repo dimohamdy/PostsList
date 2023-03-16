@@ -9,18 +9,21 @@
 import Foundation
 import CoreData
 
-extension Company {
+extension CompanyDAO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Company> {
-        return NSFetchRequest<Company>(entityName: "Company")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CompanyDAO> {
+        return NSFetchRequest<CompanyDAO>(entityName: "CompanyDAO")
     }
 
     @NSManaged public var bs: String?
     @NSManaged public var catchPhrase: String?
     @NSManaged public var name: String?
 
+    func toModel() -> Company {
+        Company(bs: bs, catchPhrase: catchPhrase, name: name)
+    }
 }
 
-extension Company: Identifiable {
+extension CompanyDAO: Identifiable {
 
 }

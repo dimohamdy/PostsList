@@ -21,8 +21,8 @@ final class WebPostsRepository: PostsRepository {
             throw PostsListError.wrongURL
         }
         // return the value from try direct without set it in another value  
-        let posts: Posts = try await client.loadData(from: url)
-        return posts
+        let posts: [PostDTO] = try await client.loadData(from: url)
+        return posts.map({ $0.toModel() })
     }
 
     func getPost(by postID: Int) async throws -> Post? {
@@ -31,8 +31,8 @@ final class WebPostsRepository: PostsRepository {
             throw PostsListError.wrongURL
         }
         // return the value from try direct without set it in another value
-        let post: Post? = try? await client.loadData(from: url)
-        return post
+        let post: PostDTO? = try? await client.loadData(from: url)
+        return post?.toModel()
     }
 
 }

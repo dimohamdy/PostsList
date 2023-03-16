@@ -13,7 +13,6 @@ final class MockNoCoreDataPostsRepository: PostsRepository, LocalPostsRepository
     var posts: Posts = []
     lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
         return decoder
     }()
 
@@ -22,7 +21,7 @@ final class MockNoCoreDataPostsRepository: PostsRepository, LocalPostsRepository
 
     func getPosts() async throws -> Posts {
         if let data = DataLoader().loadJsonData(file: "NoPosts") {
-            posts = try decoder.decode(Posts.self, from: data)
+            posts = try decoder.decode([PostDTO].self, from: data).map({$0.toModel()})
             return posts
         } else {
             return []

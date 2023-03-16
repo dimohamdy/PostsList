@@ -9,18 +9,21 @@
 import Foundation
 import CoreData
 
-extension Geo {
+extension GeoDAO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Geo> {
-        return NSFetchRequest<Geo>(entityName: "Geo")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<GeoDAO> {
+        return NSFetchRequest<GeoDAO>(entityName: "GeoDAO")
     }
 
-    @NSManaged public var lat: String?
-    @NSManaged public var lng: String?
-    @NSManaged public var address: Address?
+    @NSManaged public var lat: String
+    @NSManaged public var lng: String
+    @NSManaged public var address: AddressDAO?
 
+    func toModel() -> Geo {
+        Geo(lat: lat, lng: lng)
+    }
 }
 
-extension Geo: Identifiable {
+extension GeoDAO: Identifiable {
 
 }

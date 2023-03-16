@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-extension User {
+extension UserDAO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
-        return NSFetchRequest<User>(entityName: "User")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<UserDAO> {
+        return NSFetchRequest<UserDAO>(entityName: "UserDAO")
     }
 
     @NSManaged public var email: String
@@ -22,20 +22,23 @@ extension User {
     @NSManaged public var username: String
     // Optional Values for Users
     @NSManaged public var website: String?
-    @NSManaged public var address: Address?
-    @NSManaged public var company: Company?
+    @NSManaged public var address: AddressDAO?
+    @NSManaged public var company: CompanyDAO?
     @NSManaged public var post: NSSet?
 
+    func toModel() -> User {
+        User(email: email, id: id, name: name, phone: phone, username: username, website: website, address: address?.toModel(), company: company?.toModel(), post: post)
+    }
 }
 
 // MARK: Generated accessors for post
-extension User {
+extension UserDAO {
 
     @objc(addPostObject:)
-    @NSManaged public func addToPost(_ value: Post)
+    @NSManaged public func addToPost(_ value: PostDAO)
 
     @objc(removePostObject:)
-    @NSManaged public func removeFromPost(_ value: Post)
+    @NSManaged public func removeFromPost(_ value: PostDAO)
 
     @objc(addPost:)
     @NSManaged public func addToPost(_ values: NSSet)
@@ -45,6 +48,6 @@ extension User {
 
 }
 
-extension User: Identifiable {
+extension UserDAO: Identifiable {
 
 }
