@@ -16,7 +16,6 @@
 		33478CD829BE7BE60097ECC2 /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CBE29BE7BE50097ECC2 /* PostTests.swift */; };
 		33478CDA29BE7BE60097ECC2 /* PostsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CC129BE7BE50097ECC2 /* PostsListViewControllerTests.swift */; };
 		33478CE229BE7BE60097ECC2 /* XCTestCase+AsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CCC29BE7BE50097ECC2 /* XCTestCase+AsyncTest.swift */; };
-		33478CE329BE7BE60097ECC2 /* PhotosListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CCD29BE7BE50097ECC2 /* PhotosListPresenterTests.swift */; };
 		33478CE829BE80440097ECC2 /* Users.json in Resources */ = {isa = PBXBuildFile; fileRef = 33478CE629BE80430097ECC2 /* Users.json */; };
 		33478CE929BE80440097ECC2 /* NoUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = 33478CE729BE80430097ECC2 /* NoUsers.json */; };
 		33478CEC29BE8A850097ECC2 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CEB29BE8A850097ECC2 /* UserTests.swift */; };
@@ -121,7 +120,6 @@
 		33478CBE29BE7BE50097ECC2 /* PostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
 		33478CC129BE7BE50097ECC2 /* PostsListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsListViewControllerTests.swift; sourceTree = "<group>"; };
 		33478CCC29BE7BE50097ECC2 /* XCTestCase+AsyncTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+AsyncTest.swift"; sourceTree = "<group>"; };
-		33478CCD29BE7BE50097ECC2 /* PhotosListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosListPresenterTests.swift; sourceTree = "<group>"; };
 		33478CE629BE80430097ECC2 /* Users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Users.json; sourceTree = "<group>"; };
 		33478CE729BE80430097ECC2 /* NoUsers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoUsers.json; sourceTree = "<group>"; };
 		33478CEB29BE8A850097ECC2 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 				33478CBA29BE7BE50097ECC2 /* DataLoader */,
 				33478CEA29BE8A580097ECC2 /* TestModels */,
 				33478CB329BE7BE40097ECC2 /* Mocker */,
-				33478CCD29BE7BE50097ECC2 /* PhotosListPresenterTests.swift */,
 				33478CBF29BE7BE50097ECC2 /* SnapshotTests */,
 				33478CB729BE7BE50097ECC2 /* WebPostsRepositoryTests.swift */,
 				33478CED29BE93870097ECC2 /* WebUsersRepositoryTests.swift */,
@@ -823,7 +820,6 @@
 				33478CFD29BFE16E0097ECC2 /* MockCoreDataUsersRepository.swift in Sources */,
 				33478CD229BE7BE60097ECC2 /* WebPostsRepositoryTests.swift in Sources */,
 				33478CD729BE7BE60097ECC2 /* DataLoader.swift in Sources */,
-				33478CE329BE7BE60097ECC2 /* PhotosListPresenterTests.swift in Sources */,
 				33D614B529C1EF4F00E9ABB3 /* EmptyPlaceHolderViewTests.swift in Sources */,
 				33478CEC29BE8A850097ECC2 /* UserTests.swift in Sources */,
 				33478CEE29BE93870097ECC2 /* WebUsersRepositoryTests.swift in Sources */,

@@ -24,6 +24,7 @@ final class PostsListViewController: UIViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         tableView.separatorColor = .tertiaryLabel
         tableView.sectionHeaderTopPadding = 0.0
+        tableView.accessibilityIdentifier = "PostsListViewController.postsTableView"
         return tableView
     }()
 
@@ -74,6 +75,7 @@ final class PostsListViewController: UIViewController {
 
         let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
         refreshButtonItem.tintColor = .label
+        refreshButtonItem.accessibilityIdentifier = "PostsListViewController.refreshButtonItem"
 
         navigationItem.rightBarButtonItem = refreshButtonItem
     }
