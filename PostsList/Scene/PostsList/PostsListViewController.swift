@@ -27,6 +27,13 @@ final class PostsListViewController: UIViewController {
         return tableView
     }()
 
+    private lazy var refreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.translatesAutoresizingMaskIntoConstraints = false
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
+    }()
+
     private let presenter: PostsListPresenterInput
 
     init(presenter: PostsListPresenterInput) {
@@ -42,7 +49,6 @@ final class PostsListViewController: UIViewController {
     // MARK: View lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         setupUI()
         configureNavigationBar()
     }
@@ -57,6 +63,8 @@ final class PostsListViewController: UIViewController {
             postsTableView.topAnchor.constraint(equalTo: view.topAnchor),
             postsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+
+        postsTableView.refreshControl = refreshControl
 
     }
 
@@ -114,5 +122,8 @@ extension PostsListViewController: PostsListPresenterOutput {
         postsTableView.dataSource = tableDataSource
         postsTableView.delegate = tableDataSource
         postsTableView.reloadData()
+
+        // In case the request fired from the refreshControl
+        refreshControl.endRefreshing()
     }
 }
