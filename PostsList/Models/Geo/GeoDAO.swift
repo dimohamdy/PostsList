@@ -1,5 +1,5 @@
 //
-//  Geo+CoreDataProperties.swift
+//  Geo+CoreDataClass.swift
 //  PostsList
 //
 //  Created by Dimo Abdelaziz on 10/03/2023.
@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-extension GeoDAO {
-
+@objc(GeoDAO)
+public class GeoDAO: NSManagedObject, Identifiable {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<GeoDAO> {
         return NSFetchRequest<GeoDAO>(entityName: "GeoDAO")
     }
@@ -22,8 +22,4 @@ extension GeoDAO {
     func toModel() -> Geo {
         Geo(lat: lat, lng: lng)
     }
-}
-
-extension GeoDAO: Identifiable {
-
 }

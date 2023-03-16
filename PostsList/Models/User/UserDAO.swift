@@ -1,5 +1,5 @@
 //
-//  User+CoreDataProperties.swift
+//  User+CoreDataClass.swift
 //  PostsList
 //
 //  Created by Dimo Abdelaziz on 10/03/2023.
@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-extension UserDAO {
+@objc(UserDAO)
+public class UserDAO: NSManagedObject, Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<UserDAO> {
         return NSFetchRequest<UserDAO>(entityName: "UserDAO")
@@ -45,9 +46,5 @@ extension UserDAO {
 
     @objc(removePost:)
     @NSManaged public func removeFromPost(_ values: NSSet)
-
-}
-
-extension UserDAO: Identifiable {
 
 }

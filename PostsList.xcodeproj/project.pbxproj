@@ -73,16 +73,11 @@
 		33A6E3C829BB4CBB00FA2398 /* PostDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3A729BB4CBB00FA2398 /* PostDetailsPresenter.swift */; };
 		33A6E3C929BB4CBB00FA2398 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3A829BB4CBB00FA2398 /* PostDetailsViewController.swift */; };
 		33A6E3CC29BB4EBD00FA2398 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 33A6E3CB29BB4EBD00FA2398 /* SwiftMessages */; };
-		33A6E3EF29BB65BD00FA2398 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E529BB65BD00FA2398 /* Company+CoreDataClass.swift */; };
-		33A6E3F029BB65BD00FA2398 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E629BB65BD00FA2398 /* Post+CoreDataProperties.swift */; };
-		33A6E3F129BB65BD00FA2398 /* Geo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E729BB65BD00FA2398 /* Geo+CoreDataClass.swift */; };
-		33A6E3F229BB65BD00FA2398 /* Geo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E829BB65BD00FA2398 /* Geo+CoreDataProperties.swift */; };
-		33A6E3F329BB65BD00FA2398 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E929BB65BD00FA2398 /* Company+CoreDataProperties.swift */; };
-		33A6E3F429BB65BD00FA2398 /* Address+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3EA29BB65BD00FA2398 /* Address+CoreDataProperties.swift */; };
-		33A6E3F529BB65BD00FA2398 /* Address+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3EB29BB65BD00FA2398 /* Address+CoreDataClass.swift */; };
-		33A6E3F629BB65BD00FA2398 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3EC29BB65BD00FA2398 /* User+CoreDataProperties.swift */; };
-		33A6E3F729BB65BD00FA2398 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3ED29BB65BD00FA2398 /* User+CoreDataClass.swift */; };
-		33A6E3F829BB65BD00FA2398 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3EE29BB65BD00FA2398 /* Post+CoreDataClass.swift */; };
+		33A6E3EF29BB65BD00FA2398 /* CompanyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E529BB65BD00FA2398 /* CompanyDAO.swift */; };
+		33A6E3F129BB65BD00FA2398 /* GeoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3E729BB65BD00FA2398 /* GeoDAO.swift */; };
+		33A6E3F529BB65BD00FA2398 /* AddressDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3EB29BB65BD00FA2398 /* AddressDAO.swift */; };
+		33A6E3F729BB65BD00FA2398 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3ED29BB65BD00FA2398 /* UserDAO.swift */; };
+		33A6E3F829BB65BD00FA2398 /* PostDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3EE29BB65BD00FA2398 /* PostDAO.swift */; };
 		33A6E3FA29BB6E8E00FA2398 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3F929BB6E8E00FA2398 /* Company.swift */; };
 		33A6E3FC29BB6EC900FA2398 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3FB29BB6EC900FA2398 /* Address.swift */; };
 		33A6E3FE29BB70FC00FA2398 /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A6E3FD29BB70FC00FA2398 /* Geo.swift */; };
@@ -185,16 +180,11 @@
 		33A6E3A629BB4CBB00FA2398 /* PostDetailsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsBuilder.swift; sourceTree = "<group>"; };
 		33A6E3A729BB4CBB00FA2398 /* PostDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsPresenter.swift; sourceTree = "<group>"; };
 		33A6E3A829BB4CBB00FA2398 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
-		33A6E3E529BB65BD00FA2398 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
-		33A6E3E629BB65BD00FA2398 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		33A6E3E729BB65BD00FA2398 /* Geo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		33A6E3E829BB65BD00FA2398 /* Geo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		33A6E3E929BB65BD00FA2398 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		33A6E3EA29BB65BD00FA2398 /* Address+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		33A6E3EB29BB65BD00FA2398 /* Address+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataClass.swift"; sourceTree = "<group>"; };
-		33A6E3EC29BB65BD00FA2398 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		33A6E3ED29BB65BD00FA2398 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		33A6E3EE29BB65BD00FA2398 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		33A6E3E529BB65BD00FA2398 /* CompanyDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyDAO.swift; sourceTree = "<group>"; };
+		33A6E3E729BB65BD00FA2398 /* GeoDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoDAO.swift; sourceTree = "<group>"; };
+		33A6E3EB29BB65BD00FA2398 /* AddressDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressDAO.swift; sourceTree = "<group>"; };
+		33A6E3ED29BB65BD00FA2398 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
+		33A6E3EE29BB65BD00FA2398 /* PostDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDAO.swift; sourceTree = "<group>"; };
 		33A6E3F929BB6E8E00FA2398 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		33A6E3FB29BB6EC900FA2398 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		33A6E3FD29BB70FC00FA2398 /* Geo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo.swift; sourceTree = "<group>"; };
@@ -442,7 +432,6 @@
 		33A6E38729BB4CBA00FA2398 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				33A6E3E429BB65BD00FA2398 /* Models+CoreData */,
 				33D614BF29C24DA900E9ABB3 /* Compant */,
 				33D614BE29C24D9F00E9ABB3 /* Address */,
 				33D614BD29C24D9600E9ABB3 /* Geo */,
@@ -543,24 +532,6 @@
 			path = PostDetails;
 			sourceTree = "<group>";
 		};
-		33A6E3E429BB65BD00FA2398 /* Models+CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				33A6E3EB29BB65BD00FA2398 /* Address+CoreDataClass.swift */,
-				33A6E3EA29BB65BD00FA2398 /* Address+CoreDataProperties.swift */,
-				33A6E3E529BB65BD00FA2398 /* Company+CoreDataClass.swift */,
-				33A6E3E929BB65BD00FA2398 /* Company+CoreDataProperties.swift */,
-				33A6E3E729BB65BD00FA2398 /* Geo+CoreDataClass.swift */,
-				33A6E3E829BB65BD00FA2398 /* Geo+CoreDataProperties.swift */,
-				33A6E3EE29BB65BD00FA2398 /* Post+CoreDataClass.swift */,
-				33A6E3E629BB65BD00FA2398 /* Post+CoreDataProperties.swift */,
-				33A6E3ED29BB65BD00FA2398 /* User+CoreDataClass.swift */,
-				33A6E3EC29BB65BD00FA2398 /* User+CoreDataProperties.swift */,
-			);
-			name = "Models+CoreData";
-			path = "PostsList/Models/Models+CoreData";
-			sourceTree = SOURCE_ROOT;
-		};
 		33D614B229C1EF4F00E9ABB3 /* ViewsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +544,7 @@
 		33D614B729C24CCC00E9ABB3 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				33A6E3ED29BB65BD00FA2398 /* UserDAO.swift */,
 				33A6E38829BB4CBA00FA2398 /* User.swift */,
 				33D614B829C24CDE00E9ABB3 /* UserDTO.swift */,
 			);
@@ -582,6 +554,7 @@
 		33D614BA29C24CF400E9ABB3 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				33A6E3EE29BB65BD00FA2398 /* PostDAO.swift */,
 				33A6E38929BB4CBA00FA2398 /* Post.swift */,
 				33D614BB29C24D6F00E9ABB3 /* PostDTO.swift */,
 			);
@@ -591,6 +564,7 @@
 		33D614BD29C24D9600E9ABB3 /* Geo */ = {
 			isa = PBXGroup;
 			children = (
+				33A6E3E729BB65BD00FA2398 /* GeoDAO.swift */,
 				33A6E3FD29BB70FC00FA2398 /* Geo.swift */,
 				33D614C029C24F1E00E9ABB3 /* GeoDTO.swift */,
 			);
@@ -600,6 +574,7 @@
 		33D614BE29C24D9F00E9ABB3 /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				33A6E3EB29BB65BD00FA2398 /* AddressDAO.swift */,
 				33A6E3FB29BB6EC900FA2398 /* Address.swift */,
 				33D614C229C2536400E9ABB3 /* AddressDTO.swift */,
 			);
@@ -609,6 +584,7 @@
 		33D614BF29C24DA900E9ABB3 /* Compant */ = {
 			isa = PBXGroup;
 			children = (
+				33A6E3E529BB65BD00FA2398 /* CompanyDAO.swift */,
 				33A6E3F929BB6E8E00FA2398 /* Company.swift */,
 				33D614C429C2549500E9ABB3 /* CompanyDTO.swift */,
 			);
@@ -774,27 +750,24 @@
 				33A6E3FC29BB6EC900FA2398 /* Address.swift in Sources */,
 				33A6E3BF29BB4CBB00FA2398 /* PostsTableViewDataSource.swift in Sources */,
 				33A6E3B329BB4CBB00FA2398 /* User.swift in Sources */,
-				33A6E3F629BB65BD00FA2398 /* User+CoreDataProperties.swift in Sources */,
 				33D614C129C24F1E00E9ABB3 /* GeoDTO.swift in Sources */,
 				33A6E2EE29BA662400FA2398 /* AppDelegate.swift in Sources */,
-				33A6E3F029BB65BD00FA2398 /* Post+CoreDataProperties.swift in Sources */,
 				33A6E3B629BB4CBB00FA2398 /* APIClient.swift in Sources */,
 				33A6E3C429BB4CBB00FA2398 /* PostsListRouter.swift in Sources */,
 				33A6E3BC29BB4CBB00FA2398 /* EntryPoint.swift in Sources */,
 				3372223729BCF45200332FA7 /* CoreDataManager.swift in Sources */,
-				33A6E3F529BB65BD00FA2398 /* Address+CoreDataClass.swift in Sources */,
+				33A6E3F529BB65BD00FA2398 /* AddressDAO.swift in Sources */,
 				33A6E3C929BB4CBB00FA2398 /* PostDetailsViewController.swift in Sources */,
 				33A6E3C229BB4CBB00FA2398 /* PostTableViewCell.swift in Sources */,
 				33A6E3BE29BB4CBB00FA2398 /* PostsListError.swift in Sources */,
 				33A6E3BA29BB4CBB00FA2398 /* PostsRepository.swift in Sources */,
-				33A6E3EF29BB65BD00FA2398 /* Company+CoreDataClass.swift in Sources */,
+				33A6E3EF29BB65BD00FA2398 /* CompanyDAO.swift in Sources */,
 				33A6E2F029BA662400FA2398 /* SceneDelegate.swift in Sources */,
 				33A6E3C729BB4CBB00FA2398 /* PostDetailsBuilder.swift in Sources */,
 				33A6E3AA29BB4CBB00FA2398 /* CellReusable.swift in Sources */,
-				33A6E3F329BB65BD00FA2398 /* Company+CoreDataProperties.swift in Sources */,
 				33A6E3B429BB4CBB00FA2398 /* Post.swift in Sources */,
-				33A6E3F829BB65BD00FA2398 /* Post+CoreDataClass.swift in Sources */,
-				33A6E3F129BB65BD00FA2398 /* Geo+CoreDataClass.swift in Sources */,
+				33A6E3F829BB65BD00FA2398 /* PostDAO.swift in Sources */,
+				33A6E3F129BB65BD00FA2398 /* GeoDAO.swift in Sources */,
 				33D614C529C2549500E9ABB3 /* CompanyDTO.swift in Sources */,
 				33F68CC129BB9E0700534860 /* WebUsersRepository.swift in Sources */,
 				33F68CC529BC0F1200534860 /* CoreDataUsersRepository.swift in Sources */,
@@ -805,17 +778,15 @@
 				33A6E3C529BB4CBB00FA2398 /* PostsListBuilder.swift in Sources */,
 				33A6E3C129BB4CBB00FA2398 /* GeneralTableHeader.swift in Sources */,
 				33A6E3C329BB4CBB00FA2398 /* PostsListViewController.swift in Sources */,
-				33A6E3F729BB65BD00FA2398 /* User+CoreDataClass.swift in Sources */,
+				33A6E3F729BB65BD00FA2398 /* UserDAO.swift in Sources */,
 				33A6E3C829BB4CBB00FA2398 /* PostDetailsPresenter.swift in Sources */,
 				33A6E3FA29BB6E8E00FA2398 /* Company.swift in Sources */,
 				33478CF029BF94BE0097ECC2 /* DataProviderProtocol.swift in Sources */,
 				33D614B929C24CDE00E9ABB3 /* UserDTO.swift in Sources */,
 				33A6E3BD29BB4CBB00FA2398 /* AppAppearance.swift in Sources */,
-				33A6E3F229BB65BD00FA2398 /* Geo+CoreDataProperties.swift in Sources */,
 				33F68CC329BC0E8E00534860 /* CoreDataPostsRepository.swift in Sources */,
 				33A6E3BB29BB4CBB00FA2398 /* APILinksFactory.swift in Sources */,
 				33A6E3B929BB4CBB00FA2398 /* WebPostsRepository.swift in Sources */,
-				33A6E3F429BB65BD00FA2398 /* Address+CoreDataProperties.swift in Sources */,
 				3372223E29BDFF2100332FA7 /* LoggerProtocol.swift in Sources */,
 				33A6E3C029BB4CBB00FA2398 /* TableViewSectionType.swift in Sources */,
 				33F68CBE29BB9D7900534860 /* UsersRepository.swift in Sources */,
