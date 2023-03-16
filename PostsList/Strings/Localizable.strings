@@ -21,22 +21,13 @@
 "No_Posts_Error_Title" = "No Posts";
 "No_Posts_Error_Subtitle" = "Please, try again later";
 
-"Latitude" = "Latitude";
-"Longitude" = "Longitude";
+"No_PostDetails_Error_Title" = "No details";
+"No_PostDetails_Error_Subtitle" = "No details to show";
 
 "Try_Action" = "Try again";
 
-"Wrong_Data" = "Wrong Data";
-
-"Check_Value_Latitude" = "Please check the value latitude";
-"Check_Value_Longitude" = "Please check the value longitude";
-
-
 "Online_Title" = "Online";
 "Local_Title" = "Local";
-
-"Post_Added_Successfully" = "New post Add Successfully🥳";
-
 
 "Author_Title" = "Author:";
 "Username_Title" = "Username: %@";

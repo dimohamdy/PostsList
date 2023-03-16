@@ -25,22 +25,14 @@ enum Strings: String {
     case noPostsErrorTitle = "No_Posts_Error_Title"
     case noPostsErrorSubtitle = "No_Posts_Error_Subtitle"
 
+    case noPostDetailsErrorTitle = "No_PostDetails_Error_Title"
+    case noPostDetailsErrorSubtitle = "No_PostDetails_Error_Subtitle"
+
     // MARK: TableView Headers
     case onlineTitle = "Online_Title"
     case localTitle = "Local_Title"
 
     case tryAction = "Try_Action"
-
-    case latitude = "Latitude"
-    case longitude = "Longitude"
-
-    case wrongData = "Wrong_Data"
-
-    case checkValueLatitude = "Check_Value_Latitude"
-
-    case checkValueLongitude = "Check_Value_Longitude"
-
-    case postAdded = "Post_Added_Successfully"
 
     case authorTitle = "Author_Title"
     case usernameTitle = "Username_Title"
