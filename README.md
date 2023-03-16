@@ -6,9 +6,11 @@
 
 * I used the **Repository** design pattern to act as a Data source from API and from CoreData.
 
-* I Separated the data source of UITableView to other class **PostsTableViewDataSource**.
+* To avoid the dedouple between the **Network layer** and the **Coredata**, I used 3 diffrent Models for each Model for example (`PostDAO` for CoreData, `PostDTO` for Codable and `Post` the default one)
 
-* I used **CellReusable** protocol and create 2 extensions for UITableView to reduce code when reusing the cell.
+* I Separated the data source of UITableView to other class `PostsTableViewDataSource`.
+
+* I used `CellReusable` protocol and create 2 extensions for UITableView to reduce code when reusing the cell.
 
 * Used `Reachable` and `Reachability.swift` to check the internet connection state.
 
@@ -29,16 +31,19 @@
 
 
 # Why CoreData?
-There's a lot of choices to save the data localy like Coredata, Realm, Squlite, File, UserDefault but I decide to go with Coredata and we can disscuss this later.
+There's a lot of choices to save the data localy like CoreData, Realm, Squlite, File, UserDefault but I decide to go with CoreData and we can disscuss this later.
 
 
 # UnitTest
 * I apply  **Arrange, Act and Assert (AAA) Pattern** [AAA](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80) in Unit Testing.
-* I use mocking to Test get data from  NetworkManager, I use the same JSON file to mock data.
-* Use ***SnapshotTest*** to Test PostsListViewController
-
+* I use mocking to test get data from  NetworkLayer
+* Use ***SnapshotTest*** to test `PostsListViewController`
+ 
 ## Demo
 ![](Demo.gif)
+
+## Next Release
+* Enhance UI of `PostDetailsViewController` and add  ***SnapshotTest***  `PostDetailsViewController`
 
 ## Info
 
