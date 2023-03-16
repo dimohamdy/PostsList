@@ -136,8 +136,6 @@ final class PostDetailsViewController: UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
 
-
-
     }
 
     private func configureNavigationBar() {
