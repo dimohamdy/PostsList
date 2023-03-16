@@ -34,7 +34,7 @@ final class MockNoCoreDataPostsRepository: PostsRepository, LocalPostsRepository
         })
     }
 
-    func savePosts() throws {
+    func save(posts: PostsList.Posts) throws {
         Task {
             try await getPosts()
         }

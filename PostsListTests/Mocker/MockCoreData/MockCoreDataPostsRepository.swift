@@ -29,12 +29,12 @@ final class MockCoreDataPostsRepository: PostsRepository, LocalPostsRepository {
     }
 
     func getPost(by postID: Int) async throws -> Post? {
-       return posts.first(where: { post -> Bool in
+        return posts.first(where: { post -> Bool in
             post.id == postID
         })
     }
 
-    func savePosts() throws {
+    func save(posts: PostsList.Posts) throws {
         Task {
             try await getPosts()
         }

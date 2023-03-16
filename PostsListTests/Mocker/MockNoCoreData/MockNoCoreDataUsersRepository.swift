@@ -35,7 +35,7 @@ final class MockNoCoreDataUsersRepository: UsersRepository, LocalUsersRepository
          })
     }
 
-    func saveUsers() throws {
+    func save(users: PostsList.Users) throws {
         Task {
             try await getUsers()
         }
