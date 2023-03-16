@@ -78,10 +78,7 @@ extension PostsListPresenter: PostsListPresenterInput {
         router.navigateToPostDetails(post: post)
     }
 
-    func viewDidLoad() {
-    }
-
-    func saveUsersDataForOfflineUsage() {
+    private func saveUsersDataForOfflineUsage() {
         // Get the whole data for the offline usage
         Task {
             do {
@@ -108,7 +105,6 @@ extension PostsListPresenter: PostsListPresenterInput {
 
     private func getPostsDataOffline() {
         Task {
-            // output?.updateData(error: PostsListError.noInternetConnection)
             if let postsFromDatabase = try? await localPostsRepository.getPosts() {
                 posts = postsFromDatabase
                 let postsSections = prepareData(posts: posts, isOnline: false)
@@ -162,15 +158,14 @@ extension PostsListPresenter: PostsListPresenterInput {
         if notification.name == Notifications.Reachability.notConnected.name {
             DispatchQueue.main.async { [self] in
                 output?.showError(title: Strings.noInternetConnectionTitle.localized(), subtitle: Strings.noInternetConnectionSubtitle.localized())
-                // output?.updateData(error: PostsListError.noInternetConnection)
             }
         }
     }
 
-    func prepareData(posts: Posts, isOnline: Bool) -> [TableViewSectionType] {
+    private func prepareData(posts: Posts, isOnline: Bool) -> [TableViewSectionType] {
         var postsSections: [TableViewSectionType] = [TableViewSectionType]()
         if !posts.isEmpty {
-            postsSections.append(isOnline ? .online(posts: posts.map({ $0 }))  : .local(posts: posts.map({ $0 })))
+            postsSections.append(isOnline ? .online(posts: posts)  : .local(posts: posts))
         }
         return postsSections
     }
