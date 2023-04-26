@@ -28,15 +28,9 @@ final class PostsListPresenter {
         }
     }
 
-    let postsRepository: PostsRepository
-    let localPostsRepository: PostsRepository&LocalPostsRepository
-
-    let usersRepository: UsersRepository
-    let localUsersRepository: UsersRepository&LocalUsersRepository
+    let postsUseCase: PostsUseCaseProtocol
 
     private let router: PostsListRouter
-
-    let reachable: Reachable
 
     // internal
     private var posts: Posts = []
@@ -44,29 +38,17 @@ final class PostsListPresenter {
     private let logger: LoggerProtocol
 
     // MARK: Init
-    init(postsRepository: PostsRepository,
-         localPostsRepository: PostsRepository&LocalPostsRepository,
-         usersRepository: UsersRepository,
-         localUsersRepository: UsersRepository&LocalUsersRepository,
+    init(postsUseCase: PostsUseCaseProtocol,
          router: PostsListRouter,
-         reachable: Reachable = Reachability.shared,
          logger: LoggerProtocol) {
 
-        self.postsRepository = postsRepository
-        self.localPostsRepository = localPostsRepository
-        self.usersRepository = usersRepository
-        self.localUsersRepository = localUsersRepository
-
+        self.postsUseCase = postsUseCase
         self.router = router
-
-        self.reachable = reachable
-
         self.logger = logger
 
         [Notifications.Reachability.connected.name, Notifications.Reachability.notConnected.name].forEach { notification in
             NotificationCenter.default.addObserver(self, selector: #selector(changeInternetConnection), name: notification, object: nil)
         }
-
     }
 }
 
@@ -78,81 +60,35 @@ extension PostsListPresenter: PostsListPresenterInput {
         router.navigateToPostDetails(post: post)
     }
 
-    private func saveUsersDataForOfflineUsage() {
-        // Get the whole data for the offline usage
-        Task {
-            do {
-                if let users = try? await usersRepository.getUsers(), !users.isEmpty {
-                    localUsersRepository.deleteUsers() // clear the data base
-                    // Save users
-                    try localUsersRepository.save(users: users)
-                }
-
-            } catch let error {
-                logger.log(error.localizedDescription, level: .error)
-            }
-        }
-    }
-
     func getPosts() {
-        guard reachable.isConnected else {
-            getPostsDataOffline()
-            return
-        }
-
-        getPostsDataOnline()
-    }
-
-    private func getPostsDataOffline() {
-        Task {
-            if let postsFromDatabase = try? await localPostsRepository.getPosts() {
-                posts = postsFromDatabase
-                let postsSections = prepareData(posts: posts, isOnline: false)
-                DispatchQueue.main.async { [self] in
-                    if postsSections.isEmpty {
-                        output?.updateData(error: PostsListError.noResults)
-                    } else {
-                        output?.updateData(tableSections: postsSections)
-                    }
-                }
-            }
-        }
-    }
-
-    private func getPostsDataOnline() {
         output?.showLoading()
         Task {
             do {
-                guard let posts = try? await postsRepository.getPosts(), !posts.isEmpty else {
-                    getPostsDataOffline()
-                    return
-                }
-                // Save Posts
-                localPostsRepository.deletePosts()
-                try localPostsRepository.save(posts: posts)
-
-                saveUsersDataForOfflineUsage()
-
-                self.posts = posts
-                let postsSections = prepareData(posts: posts, isOnline: true)
+                let data: PostsData = try await postsUseCase.getPosts()
+                let tableSections = prepareData(data: data)
+                posts = data.posts
                 DispatchQueue.main.async { [self] in
-
-                    output?.hideLoading()
-
-                    if postsSections.isEmpty {
-                        output?.updateData(error: PostsListError.noResults)
-                    } else {
-                        output?.updateData(tableSections: postsSections)
-                    }
+                    output?.updateData(tableSections: tableSections)
                 }
-            } catch let error {
+            } catch let error  {
                 DispatchQueue.main.async { [self] in
                     output?.updateData(error: error)
                 }
             }
+            DispatchQueue.main.async { [self] in
+                output?.hideLoading()
+            }
         }
     }
 
+    private func prepareData(data: PostsData) -> [TableViewSectionType] {
+        var postsSections: [TableViewSectionType] = [TableViewSectionType]()
+        if !data.posts.isEmpty {
+            postsSections.append(data.isOnline ? .online(posts: data.posts)  : .local(posts: data.posts))
+        }
+        return postsSections
+    }
+    
     @objc
     private func changeInternetConnection(notification: Notification) {
         if notification.name == Notifications.Reachability.notConnected.name {
@@ -162,11 +98,4 @@ extension PostsListPresenter: PostsListPresenterInput {
         }
     }
 
-    private func prepareData(posts: Posts, isOnline: Bool) -> [TableViewSectionType] {
-        var postsSections: [TableViewSectionType] = [TableViewSectionType]()
-        if !posts.isEmpty {
-            postsSections.append(isOnline ? .online(posts: posts)  : .local(posts: posts))
-        }
-        return postsSections
-    }
 }
