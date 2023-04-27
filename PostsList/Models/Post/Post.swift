@@ -25,6 +25,16 @@ struct Post {
     }
 }
 
+extension Post: Hashable {
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 // MARK: - PostElement
 
 typealias Posts = [Post]

@@ -67,6 +67,9 @@ final class PostsListViewController: UIViewController {
 
         postsTableView.refreshControl = refreshControl
 
+        tableDataSource = PostsTableViewDataSource(tableView: postsTableView, presenterInput: presenter, tableSections: [])
+        postsTableView.dataSource = tableDataSource
+        postsTableView.delegate = tableDataSource
     }
 
     private func configureNavigationBar() {
@@ -120,10 +123,8 @@ extension PostsListViewController: PostsListPresenterOutput {
         postsTableView.restore()
 
         // Reload the tableView
-        tableDataSource = PostsTableViewDataSource(presenterInput: presenter, tableSections: tableSections)
-        postsTableView.dataSource = tableDataSource
-        postsTableView.delegate = tableDataSource
-        postsTableView.reloadData()
+        tableDataSource?.tableSections = tableSections
+
 
         // In case the request fired from the refreshControl
         refreshControl.endRefreshing()

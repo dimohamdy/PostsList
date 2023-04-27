@@ -7,52 +7,38 @@
 
 import UIKit
 
-final class PostsTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var tableSections: [TableViewSectionType] = []
-
-    weak var presenterInput: PostsListPresenterInput?
+final class PostsTableViewDataSource: UITableViewDiffableDataSource<TableViewSectionType, Post>, UITableViewDelegate {
 
     private struct CellHeightConstant {
         static let heightOfPostCell: CGFloat = 50
         static let heightOfHistoryHeader: CGFloat = 50
     }
 
-    init(presenterInput: PostsListPresenterInput?, tableSections: [TableViewSectionType]) {
+    weak var presenterInput: PostsListPresenterInput?
+
+    var tableSections: [TableViewSectionType] = [] {
+        didSet {
+            self.applySnapshot()
+        }
+    }
+
+    init(tableView: UITableView, presenterInput: PostsListPresenterInput?, tableSections: [TableViewSectionType]) {
+        super.init(tableView: tableView) { (tableView, indexPath, postModel) -> UITableViewCell? in
+            guard let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath) else {
+                assertionFailure("Failed to dequeue \(TableViewSectionType.self)!")
+                return UITableViewCell()
+            }
+            cell.accessibilityIdentifier = "\(AccessibilityIdentifiers.PostsList.cellId).\(indexPath.row)"
+            cell.configCell(postModel: postModel)
+            return cell
+        }
         self.tableSections = tableSections
         self.presenterInput = presenterInput
-    }
-
-    // MARK: - UITableView view data source
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        tableSections.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = tableSections[section]
-        switch section {
-        case .online(let posts), .local(let posts):
-            return posts.count
-        }
-
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = tableSections[indexPath.section]
-        switch section {
-        case .online(let posts), .local(let posts):
-            if let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath) {
-                cell.configCell(postModel: posts[indexPath.row])
-                return cell
-            }
-        }
-        return UITableViewCell()
-
+        self.applySnapshot(animated: false, animatingDifferences: false)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenterInput?.open(indexPath: indexPath)
-
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,5 +62,17 @@ final class PostsTableViewDataSource: NSObject, UITableViewDataSource, UITableVi
         }
 
         return headerCell
+    }
+
+    private func applySnapshot(animated: Bool = true, animatingDifferences: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<TableViewSectionType, Post>()
+        for section in tableSections {
+            snapshot.appendSections([section])
+            switch section {
+            case .online(let posts), .local(let posts):
+                snapshot.appendItems(posts, toSection: section)
+            }
+        }
+        self.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
