@@ -24,7 +24,6 @@ final class PostsListViewController: UIViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         tableView.separatorColor = .tertiaryLabel
         tableView.sectionHeaderTopPadding = 0.0
-        tableView.accessibilityIdentifier = "PostsListViewController.postsTableView"
         return tableView
     }()
 
@@ -51,10 +50,19 @@ final class PostsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupAccessibility()
         configureNavigationBar()
     }
 
+    // MARK: - Setup Accessibility
+
+    private func setupAccessibility() {
+        view.accessibilityIdentifier = AccessibilityIdentifiers.PostsList.rootViewId
+        postsTableView.accessibilityIdentifier = AccessibilityIdentifiers.PostsList.tableViewId
+    }
+
     // MARK: - Setup UI
+
     private func setupUI() {
         view.backgroundColor = .green
         view.addSubview(postsTableView)
@@ -78,7 +86,7 @@ final class PostsListViewController: UIViewController {
 
         let refreshButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
         refreshButtonItem.tintColor = .label
-        refreshButtonItem.accessibilityIdentifier = "PostsListViewController.refreshButtonItem"
+        refreshButtonItem.accessibilityIdentifier = AccessibilityIdentifiers.PostsList.refreshButtonId
 
         navigationItem.rightBarButtonItem = refreshButtonItem
     }

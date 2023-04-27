@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import PostsList
 
 final class PostsListUITests: XCTestCase {
 
@@ -20,11 +21,11 @@ final class PostsListUITests: XCTestCase {
         let expectation = XCTestExpectation()
 
         // Check the datasource after getPosts result bind to TableView
-        let postsTableView = app.tables["PostsListViewController.postsTableView"]
+        let postsTableView = app.tables[AccessibilityIdentifiers.PostsList.tableViewId]
 
         XCTAssertEqual(postsTableView.cells.count, 100)
 
-        let refreshButtonItem = app.navigationBars["Posts"].buttons["PostsListViewController.refreshButtonItem"]
+        let refreshButtonItem = app.navigationBars["Posts"].buttons[AccessibilityIdentifiers.PostsList.refreshButtonId]
         refreshButtonItem.tap()
         XCTAssertEqual(postsTableView.cells.count, 100)
     }
