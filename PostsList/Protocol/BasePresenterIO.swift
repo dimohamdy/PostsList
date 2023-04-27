@@ -49,27 +49,33 @@ extension BaseDisplayLogic where Self: UIViewController {
     }
 
     func showAlert(title: String, subtitle: String?, theme: Theme) {
-        let view = MessageView.viewFromNib(layout: .cardView)
-        view.configureTheme(theme)
-        view.button?.isHidden = true
-        view.configureContent(title: title, body: subtitle ?? "")
+        DispatchQueue.main.async {
+            let view = MessageView.viewFromNib(layout: .cardView)
+            view.configureTheme(theme)
+            view.button?.isHidden = true
+            view.configureContent(title: title, body: subtitle ?? "")
 
-        var successConfig = SwiftMessages.defaultConfig
-        successConfig.presentationStyle = .center
-        successConfig.preferredStatusBarStyle = .lightContent
-        successConfig.presentationContext = .window(windowLevel: UIWindow.Level.normal)
+            var successConfig = SwiftMessages.defaultConfig
+            successConfig.presentationStyle = .center
+            successConfig.preferredStatusBarStyle = .lightContent
+            successConfig.presentationContext = .window(windowLevel: UIWindow.Level.normal)
 
-        SwiftMessages.show(config: successConfig, view: view)
+            SwiftMessages.show(config: successConfig, view: view)
+        }
     }
 }
 
 extension UIViewController: BasePresenterOutput {
 
     func showLoading() {
-        view.showLoadingIndicator()
+        DispatchQueue.main.async { [self] in
+            view.showLoadingIndicator()
+        }
     }
 
     func hideLoading() {
-        view.dismissLoadingIndicator()
+        DispatchQueue.main.async { [self] in
+            view.dismissLoadingIndicator()
+        }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3303499229F8CA93003367C2 /* PostsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303499129F8CA93003367C2 /* PostsUsecase.swift */; };
 		3303499429F98403003367C2 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303499329F98403003367C2 /* AccessibilityIdentifiers.swift */; };
+		3303499629FAFDE9003367C2 /* PostDetailsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303499529FAFDE9003367C2 /* PostDetailsUsecase.swift */; };
 		33478CCF29BE7BE60097ECC2 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB429BE7BE40097ECC2 /* NetworkMock.swift */; };
 		33478CD029BE7BE60097ECC2 /* MockReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB529BE7BE40097ECC2 /* MockReachability.swift */; };
 		33478CD229BE7BE60097ECC2 /* WebPostsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33478CB729BE7BE50097ECC2 /* WebPostsRepositoryTests.swift */; };
@@ -115,6 +116,7 @@
 /* Begin PBXFileReference section */
 		3303499129F8CA93003367C2 /* PostsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsUsecase.swift; sourceTree = "<group>"; };
 		3303499329F98403003367C2 /* AccessibilityIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifiers.swift; sourceTree = "<group>"; };
+		3303499529FAFDE9003367C2 /* PostDetailsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsUsecase.swift; sourceTree = "<group>"; };
 		33478CB429BE7BE40097ECC2 /* NetworkMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
 		33478CB529BE7BE40097ECC2 /* MockReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockReachability.swift; sourceTree = "<group>"; };
 		33478CB729BE7BE50097ECC2 /* WebPostsRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPostsRepositoryTests.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 			children = (
 				33A6E3A629BB4CBB00FA2398 /* PostDetailsBuilder.swift */,
 				33A6E3A729BB4CBB00FA2398 /* PostDetailsPresenter.swift */,
+				3303499529FAFDE9003367C2 /* PostDetailsUsecase.swift */,
 				33A6E3A829BB4CBB00FA2398 /* PostDetailsViewController.swift */,
 			);
 			path = PostDetails;
@@ -754,6 +757,7 @@
 				33A6E3BF29BB4CBB00FA2398 /* PostsTableViewDataSource.swift in Sources */,
 				33A6E3B329BB4CBB00FA2398 /* User.swift in Sources */,
 				33D614C129C24F1E00E9ABB3 /* GeoDTO.swift in Sources */,
+				3303499629FAFDE9003367C2 /* PostDetailsUsecase.swift in Sources */,
 				33A6E2EE29BA662400FA2398 /* AppDelegate.swift in Sources */,
 				33A6E3B629BB4CBB00FA2398 /* APIClient.swift in Sources */,
 				3303499229F8CA93003367C2 /* PostsUsecase.swift in Sources */,
