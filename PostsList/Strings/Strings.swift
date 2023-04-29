@@ -28,6 +28,9 @@ enum Strings: String {
     case noPostDetailsErrorTitle = "No_PostDetails_Error_Title"
     case noPostDetailsErrorSubtitle = "No_PostDetails_Error_Subtitle"
 
+    case noPostSelectedErrorTitle = "No_PostSelected_Error_Title"
+    case noPostSelectedErrorSubtitle = "No_PostSelected_Error_Subtitle"
+
     // MARK: TableView Headers
     case onlineTitle = "Online_Title"
     case localTitle = "Local_Title"

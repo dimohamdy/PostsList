@@ -90,7 +90,7 @@ final class PostDetailsViewController: UIViewController {
     }()
 
     private let presenter: PostDetailsPresenterInput
-
+    private var emptyPlaceHolderView: EmptyPlaceHolderView?
     // MARK: View lifeCycle
 
     init(presenter: PostDetailsPresenterInput) {
@@ -174,6 +174,9 @@ final class PostDetailsViewController: UIViewController {
 extension PostDetailsViewController: PostDetailsPresenterOutput {
 
     func showPost(post: Post, user: User) {
+        if let emptyPlaceHolderView {
+            hideEmptyPlaceHolderView(emptyPlaceHolderView)
+        }
         titleLabel.text = post.title.capitalized
         bodyLabel.text = post.body.capitalized
 
@@ -191,4 +194,9 @@ extension PostDetailsViewController: PostDetailsPresenterOutput {
             companyNameLabel.text = String(format: NSLocalizedString(Strings.companyTitle.localized(), comment: ""), companyName)
         }
     }
+
+    func emptyState(emptyPlaceHolderType: EmptyPlaceHolderType) {
+        emptyPlaceHolderView = showEmptyPlaceHolderView(withType: emptyPlaceHolderType)
+    }
+
 }

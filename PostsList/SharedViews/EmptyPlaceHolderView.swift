@@ -10,7 +10,9 @@ import UIKit
 enum EmptyPlaceHolderType {
     case noInternetConnection
     case noResults
+    case noPostSelected // for IPad
     case error(message: String)
+    
 }
 
 final class EmptyPlaceHolderView: UIView {
@@ -26,6 +28,10 @@ final class EmptyPlaceHolderView: UIView {
             case .noResults:
                 titleLabel.text = Strings.noPostsErrorTitle.localized()
                 detailsLabel.text = Strings.noPostsErrorSubtitle.localized()
+                logoImageView.image = UIImage(named: "refresh")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+            case .noPostSelected:
+                titleLabel.text = Strings.noPostSelectedErrorTitle.localized()
+                detailsLabel.text = Strings.noPostDetailsErrorSubtitle.localized()
                 logoImageView.image = UIImage(named: "refresh")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
             case .error(let message):
                 titleLabel.text = Strings.commonGeneralError.localized()
@@ -133,3 +139,6 @@ final class EmptyPlaceHolderView: UIView {
        completionBlock?()
     }
 }
+
+
+

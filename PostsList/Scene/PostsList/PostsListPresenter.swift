@@ -56,8 +56,17 @@ final class PostsListPresenter {
 extension PostsListPresenter: PostsListPresenterInput {
 
     func open(indexPath: IndexPath) {
-        let post = posts[indexPath.row]
-        router.navigateToPostDetails(post: post)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let post = posts[indexPath.row]
+            let userInfo: [AnyHashable : Any]? = ["post": post]
+
+            NotificationCenter.default.post(name: Notifications.Data.updatePost.name, object: nil, userInfo: userInfo)
+
+            //do stuff
+        } else {
+            let post = posts[indexPath.row]
+            router.navigateToPostDetails(post: post)
+        }
     }
 
     func getPosts() {

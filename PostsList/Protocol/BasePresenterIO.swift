@@ -17,6 +17,7 @@ extension BasePresenterInput {
 }
 
 protocol BaseDisplayLogic: AnyObject {
+    
     func handle(error: PostsListError)
     func showError(error: Error)
     func showError(title: String, subtitle: String?)

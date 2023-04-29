@@ -9,7 +9,7 @@ import UIKit
 
 struct PostDetailsBuilder {
 
-    static func viewController(post: Post, dataProvider: DataProviderProtocol) -> PostDetailsViewController {
+    static func viewController(post: Post?, dataProvider: DataProviderProtocol) -> PostDetailsViewController {
        let logger = ProxyLogger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: PostsListPresenter.self))
         let postDetailsUseCase = PostDetailsUseCase(dataProvider: dataProvider, logger: logger)
         let presenter = PostDetailsPresenter(post: post, postDetailsUseCase: postDetailsUseCase, logger: logger)

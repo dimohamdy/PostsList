@@ -16,6 +16,7 @@ enum PostsListError: Error {
     case parseError
     case fileNotFound
     case invalidServerResponse
+    case noPost
 
     var localizedDescription: String {
         switch self {
