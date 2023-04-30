@@ -43,13 +43,12 @@ class PostsUseCase: PostsUseCaseProtocol {
         self.logger = logger
     }
 
-
     func getPosts()  async throws -> PostsData {
         let postsSections = await reachable.isConnected ? try getPostsDataOnline() : try getPostsDataOffline()
         return postsSections
     }
 
-    private func getPostsDataOffline()  async throws -> (posts: Posts, isOnline: Bool)  {
+    private func getPostsDataOffline()  async throws -> (posts: Posts, isOnline: Bool) {
         let postsFromDatabase = try await localPostsRepository.getPosts()
 
         if postsFromDatabase.isEmpty {
@@ -95,6 +94,5 @@ class PostsUseCase: PostsUseCaseProtocol {
             }
         }
     }
-    
 
 }

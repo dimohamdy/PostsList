@@ -23,15 +23,16 @@ final class PostsTableViewDataSource: UITableViewDiffableDataSource<TableViewSec
     }
 
     init(tableView: UITableView, presenterInput: PostsListPresenterInput?, tableSections: [TableViewSectionType]) {
+
         super.init(tableView: tableView) { (tableView, indexPath, postModel) -> UITableViewCell? in
             guard let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath) else {
-                assertionFailure("Failed to dequeue \(TableViewSectionType.self)!")
                 return UITableViewCell()
             }
             cell.accessibilityIdentifier = "\(AccessibilityIdentifiers.PostsList.cellId).\(indexPath.row)"
             cell.configCell(postModel: postModel)
             return cell
         }
+
         self.tableSections = tableSections
         self.presenterInput = presenterInput
         self.applySnapshot(animated: false, animatingDifferences: false)

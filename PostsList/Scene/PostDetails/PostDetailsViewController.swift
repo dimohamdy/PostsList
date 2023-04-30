@@ -89,8 +89,10 @@ final class PostDetailsViewController: UIViewController {
         return scrollView
     }()
 
-    private let presenter: PostDetailsPresenterInput
     private var emptyPlaceHolderView: EmptyPlaceHolderView?
+
+    private let presenter: PostDetailsPresenterInput
+
     // MARK: View lifeCycle
 
     init(presenter: PostDetailsPresenterInput) {
@@ -166,6 +168,7 @@ final class PostDetailsViewController: UIViewController {
 
     @objc
     private func refreshPost() {
+        scrollView.isHidden = true
         presenter.viewDidLoad()
     }
 }
@@ -174,16 +177,16 @@ final class PostDetailsViewController: UIViewController {
 extension PostDetailsViewController: PostDetailsPresenterOutput {
 
     func showPost(post: Post, user: User) {
+        // Hide Placeholder
         if let emptyPlaceHolderView {
             hideEmptyPlaceHolderView(emptyPlaceHolderView)
         }
+
         titleLabel.text = post.title.capitalized
         bodyLabel.text = post.body.capitalized
 
         userTitleLabel.text = Strings.authorTitle.localized()
-
         userNameLabel.text =  String(format: NSLocalizedString(Strings.usernameTitle.localized(), comment: ""), user.username )
-
         userEmailLabel.text = String(format: NSLocalizedString(Strings.emailTitle.localized(), comment: ""), user.email)
 
         if let street = user.address?.street {
@@ -193,6 +196,8 @@ extension PostDetailsViewController: PostDetailsPresenterOutput {
         if let companyName = user.company?.name {
             companyNameLabel.text = String(format: NSLocalizedString(Strings.companyTitle.localized(), comment: ""), companyName)
         }
+        scrollView.isHidden = false
+
     }
 
     func emptyState(emptyPlaceHolderType: EmptyPlaceHolderType) {

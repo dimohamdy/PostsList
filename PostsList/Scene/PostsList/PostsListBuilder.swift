@@ -23,8 +23,7 @@ struct PostsListBuilder {
              logger: logger)
 
         let presenter = PostsListPresenter(postsUseCase: postsUseCase,
-                                           router: router,
-                                           logger: logger)
+                                           router: router)
         let viewController: PostsListViewController = PostsListViewController(presenter: presenter)
         presenter.output = viewController
 

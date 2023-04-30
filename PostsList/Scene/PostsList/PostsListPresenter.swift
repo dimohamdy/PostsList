@@ -30,21 +30,16 @@ final class PostsListPresenter {
 
     let postsUseCase: PostsUseCaseProtocol
 
-    private let router: PostsListRouter
-
     // internal
     private var posts: Posts = []
-
-    private let logger: LoggerProtocol
+    private let router: PostsListRouter
 
     // MARK: Init
     init(postsUseCase: PostsUseCaseProtocol,
-         router: PostsListRouter,
-         logger: LoggerProtocol) {
+         router: PostsListRouter) {
 
         self.postsUseCase = postsUseCase
         self.router = router
-        self.logger = logger
 
         [Notifications.Reachability.connected.name, Notifications.Reachability.notConnected.name].forEach { notification in
             NotificationCenter.default.addObserver(self, selector: #selector(changeInternetConnection), name: notification, object: nil)
@@ -56,13 +51,12 @@ final class PostsListPresenter {
 extension PostsListPresenter: PostsListPresenterInput {
 
     func open(indexPath: IndexPath) {
+        // Update the Details screen in iPad
         if UIDevice.current.userInterfaceIdiom == .pad {
             let post = posts[indexPath.row]
-            let userInfo: [AnyHashable : Any]? = ["post": post]
-
+            let userInfo: [AnyHashable: Any]? = ["post": post]
             NotificationCenter.default.post(name: Notifications.Data.updatePost.name, object: nil, userInfo: userInfo)
 
-            //do stuff
         } else {
             let post = posts[indexPath.row]
             router.navigateToPostDetails(post: post)
@@ -79,14 +73,12 @@ extension PostsListPresenter: PostsListPresenterInput {
                 DispatchQueue.main.async { [self] in
                     output?.updateData(tableSections: tableSections)
                 }
-            } catch let error  {
+            } catch let error {
                 DispatchQueue.main.async { [self] in
                     output?.updateData(error: error)
                 }
             }
-            DispatchQueue.main.async { [self] in
-                output?.hideLoading()
-            }
+            output?.hideLoading()
         }
     }
 
@@ -97,13 +89,11 @@ extension PostsListPresenter: PostsListPresenterInput {
         }
         return postsSections
     }
-    
+
     @objc
     private func changeInternetConnection(notification: Notification) {
         if notification.name == Notifications.Reachability.notConnected.name {
-            DispatchQueue.main.async { [self] in
-                output?.showError(title: Strings.noInternetConnectionTitle.localized(), subtitle: Strings.noInternetConnectionSubtitle.localized())
-            }
+            output?.showError(title: Strings.noInternetConnectionTitle.localized(), subtitle: Strings.noInternetConnectionSubtitle.localized())
         }
     }
 

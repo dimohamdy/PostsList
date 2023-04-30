@@ -34,6 +34,8 @@ final class PostsListViewController: UIViewController {
         return refreshControl
     }()
 
+    private var emptyPlaceHolderView: EmptyPlaceHolderView?
+
     private let presenter: PostsListPresenterInput
 
     init(presenter: PostsListPresenterInput) {
@@ -75,9 +77,7 @@ final class PostsListViewController: UIViewController {
 
         postsTableView.refreshControl = refreshControl
 
-        tableDataSource = PostsTableViewDataSource(tableView: postsTableView, presenterInput: presenter, tableSections: [])
-        postsTableView.dataSource = tableDataSource
-        postsTableView.delegate = tableDataSource
+        setupPostsTableViewDataSource()
     }
 
     private func configureNavigationBar() {
@@ -93,7 +93,14 @@ final class PostsListViewController: UIViewController {
 
     @objc
     private func refresh() {
+        clearTableView()
         presenter.getPosts()
+    }
+
+    private func setupPostsTableViewDataSource() {
+        tableDataSource = PostsTableViewDataSource(tableView: postsTableView, presenterInput: presenter, tableSections: [])
+        postsTableView.dataSource = tableDataSource
+        postsTableView.delegate = tableDataSource
     }
 }
 
@@ -127,14 +134,17 @@ extension PostsListViewController: PostsListPresenterOutput {
 
     // Update sections not the whole table
     func updateData(tableSections: [TableViewSectionType]) {
+        if tableDataSource == nil {
+            setupPostsTableViewDataSource()
+        }
         // Clear any placeholder view from tableView
         postsTableView.restore()
 
         // Reload the tableView
         tableDataSource?.tableSections = tableSections
 
-
         // In case the request fired from the refreshControl
         refreshControl.endRefreshing()
     }
+
 }

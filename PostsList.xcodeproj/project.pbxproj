@@ -91,6 +91,7 @@
 		33D614C129C24F1E00E9ABB3 /* GeoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614C029C24F1E00E9ABB3 /* GeoDTO.swift */; };
 		33D614C329C2536400E9ABB3 /* AddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614C229C2536400E9ABB3 /* AddressDTO.swift */; };
 		33D614C529C2549500E9ABB3 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D614C429C2549500E9ABB3 /* CompanyDTO.swift */; };
+		33E6486429FE0C3200F96756 /* AccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3303499329F98403003367C2 /* AccessibilityIdentifiers.swift */; };
 		33F68CBE29BB9D7900534860 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CBD29BB9D7900534860 /* UsersRepository.swift */; };
 		33F68CC129BB9E0700534860 /* WebUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CC029BB9E0700534860 /* WebUsersRepository.swift */; };
 		33F68CC329BC0E8E00534860 /* CoreDataPostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F68CC229BC0E8E00534860 /* CoreDataPostsRepository.swift */; };
@@ -846,6 +847,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E6486429FE0C3200F96756 /* AccessibilityIdentifiers.swift in Sources */,
 				33A6E31429BA662800FA2398 /* PostsListUITestsLaunchTests.swift in Sources */,
 				33A6E31229BA662800FA2398 /* PostsListUITests.swift in Sources */,
 			);
@@ -974,6 +976,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

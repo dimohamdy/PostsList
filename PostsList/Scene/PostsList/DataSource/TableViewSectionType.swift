@@ -7,14 +7,13 @@
 
 import Foundation
 
-enum TableViewSectionType: Hashable, CaseIterable {
-    static var allCases: [TableViewSectionType] { [.online(posts: []), .local(posts: [])] }
-
+enum TableViewSectionType: Hashable {
     case online(posts: Posts)
     case local(posts: Posts)
 }
+
 extension TableViewSectionType: Equatable {
-    
+
     static func == (lhs: TableViewSectionType, rhs: TableViewSectionType) -> Bool {
         switch (lhs, rhs) {
         case (.online, .online), (.local, .local):
