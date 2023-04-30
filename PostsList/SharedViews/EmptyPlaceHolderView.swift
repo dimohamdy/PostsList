@@ -12,7 +12,7 @@ enum EmptyPlaceHolderType {
     case noResults
     case noPostSelected // for IPad
     case error(message: String)
-    
+
 }
 
 final class EmptyPlaceHolderView: UIView {
@@ -25,18 +25,22 @@ final class EmptyPlaceHolderView: UIView {
                 titleLabel.text = Strings.noInternetConnectionTitle.localized()
                 detailsLabel.text = Strings.noInternetConnectionSubtitle.localized()
                 logoImageView.image = UIImage(named: "refresh")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+                actionButton.isHidden = false
             case .noResults:
                 titleLabel.text = Strings.noPostsErrorTitle.localized()
                 detailsLabel.text = Strings.noPostsErrorSubtitle.localized()
-                logoImageView.image = UIImage(named: "refresh")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+                logoImageView.image = UIImage(named: "no-result")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+                actionButton.isHidden = false
             case .noPostSelected:
                 titleLabel.text = Strings.noPostSelectedErrorTitle.localized()
-                detailsLabel.text = Strings.noPostDetailsErrorSubtitle.localized()
-                logoImageView.image = UIImage(named: "refresh")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+                detailsLabel.text = Strings.noPostSelectedErrorSubtitle.localized()
+                logoImageView.image = UIImage(named: "no-data-icon")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+                actionButton.isHidden = true
             case .error(let message):
                 titleLabel.text = Strings.commonGeneralError.localized()
                 detailsLabel.text = message
                 logoImageView.image = UIImage(named: "refresh")?.withTintColor(.secondarySystemBackground, renderingMode: .alwaysOriginal)
+                actionButton.isHidden = false
             }
         }
     }
@@ -139,6 +143,3 @@ final class EmptyPlaceHolderView: UIView {
        completionBlock?()
     }
 }
-
-
-
