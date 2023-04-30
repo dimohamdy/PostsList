@@ -1,5 +1,17 @@
 # PostsList
 
+To fulfill the requirements of the second point, I suggest using two API endpoints:
+
+### 1. Posts API endpoint:
+http://jsonplaceholder.typicode.com/posts
+
+This endpoint returns a list of posts with basic information such as title, body. I used this endpoint to display a list of posts on the posts screen.
+
+### 2. Users API endpoint:
+http://jsonplaceholder.typicode.com/users/{userId}
+
+This endpoint returns detailed information about a specific user identified by the `{userId}` parameter. I used this endpoint to retrieve user information for each post displayed on the detail screen.
+
 # App Structure
 
 * App structure I use **MVP** with Input-Output approach **Delegate** to notify about updates. I selected **MVP** becasue the app is simpel only 2 screens.
@@ -26,13 +38,9 @@
 
 * I supported Dark-Light Mode
 
-![](ScreenShots/Screen1.png)
-![](ScreenShots/Screen2.png)
-
 
 # Why CoreData?
 There's a lot of choices to save the data localy like CoreData, Realm, Squlite, File, UserDefault but I decide to go with CoreData and we can disscuss this later.
-
 
 # UnitTest
 * I apply  **Arrange, Act and Assert (AAA) Pattern** [AAA](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80) in Unit Testing.
@@ -40,10 +48,11 @@ There's a lot of choices to save the data localy like CoreData, Realm, Squlite, 
 * Use ***SnapshotTest*** to test `PostsListViewController`
  
 ## Demo
-![](Demo.gif)
+![](Demo_iPhone.gif)
+![](Demo_iPad.gif)
 
 ## Next Release
-* Enhance UI of `PostDetailsViewController` and add  ***SnapshotTest***  `PostDetailsViewController`
+* Enhance UI of `PostDetailsViewController`
 
 ## Info
 
