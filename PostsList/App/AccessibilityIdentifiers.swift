@@ -28,10 +28,4 @@ public struct AccessibilityIdentifiers {
         public static let stackViewId = "\(PostDetails.self).stackViewId"
         public static let scrollViewId = "\(PostDetails.self).scrollViewId"
     }
-    
-    public struct Alert {
-        public static let rootViewId = "\(Alert.self).rootViewId"
-        public static let titleLabelId = "\(Alert.self).titleLabelId"
-        public static let descriptionLabelId = "\(Alert.self).descriptionLabelId"
-    }
 }
