@@ -15,9 +15,9 @@ struct EntryPoint {
             let splitVC = UISplitViewController()
             splitVC.preferredDisplayMode = .oneBesideSecondary
             let postsListViewController = PostsListBuilder.viewController()
-            let navigationController = UINavigationController(rootViewController: postsListViewController)
             let postDetailsViewController = PostDetailsBuilder.viewController(post: nil, dataProvider: DataProvider())
-            splitVC.viewControllers = [navigationController, postDetailsViewController]
+            splitVC.viewControllers = [UINavigationController(rootViewController: postsListViewController),
+                                       UINavigationController(rootViewController: postDetailsViewController)]
             window.rootViewController = splitVC
             window.makeKeyAndVisible()
         } else {
