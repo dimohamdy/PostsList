@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import PostsList
 
 final class PostsListUITests: XCTestCase {
 
@@ -18,16 +17,69 @@ final class PostsListUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        let expectation = XCTestExpectation()
-
-        // Check the datasource after getPosts result bind to TableView
         let postsTableView = app.tables[AccessibilityIdentifiers.PostsList.tableViewId]
 
-        XCTAssertEqual(postsTableView.cells.count, 100)
+        // Wait for the asynchronous task to complete and for the table to finish updating
+        let predicate = NSPredicate(format: "count > 0")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: postsTableView.cells)
+        wait(for: [expectation], timeout: 5)
 
+        // Get the list of cells in the table
+        let cells = postsTableView.cells.allElementsBoundByIndex
+
+        // Check that the number of cells in the list matches the expected number of cells
+        XCTAssertEqual(cells.count, 100)
+    }
+
+    func test_numberOfCells_PostsTableView_Refresh() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let postsTableView = app.tables[AccessibilityIdentifiers.PostsList.tableViewId]
         let refreshButtonItem = app.navigationBars["Posts"].buttons[AccessibilityIdentifiers.PostsList.refreshButtonId]
         refreshButtonItem.tap()
-        XCTAssertEqual(postsTableView.cells.count, 100)
+
+        // Wait for the asynchronous task to complete and for the table to finish updating
+        let predicate = NSPredicate(format: "count > 0")
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: postsTableView.cells)
+        wait(for: [expectation], timeout: 5)
+
+        // Get the list of cells in the table
+        let cells = postsTableView.cells.allElementsBoundByIndex
+
+        // Check that the number of cells in the list matches the expected number of cells
+        XCTAssertEqual(cells.count, 100)
+    }
+
+    func test_PostDetails() throws {
+
+        let app = XCUIApplication()
+        app.launch()
+
+        let postsTableView = app.tables[AccessibilityIdentifiers.PostsList.tableViewId]
+        let firstCell = postsTableView.cells["\(AccessibilityIdentifiers.PostsList.cellId).0"]
+        firstCell.tap()
+
+        // waiting to get the data and show it
+        sleep(5)
+
+        let titleLabel = app.staticTexts[AccessibilityIdentifiers.PostDetails.titleLabelId].label
+        let bodyLabel = app.staticTexts[AccessibilityIdentifiers.PostDetails.bodyLabelId].label
+        let userNameLabel = app.staticTexts[AccessibilityIdentifiers.PostDetails.userNameLabelId].label
+        let userEmailLabel = app.staticTexts[AccessibilityIdentifiers.PostDetails.userEmailLabelId].label
+        let companyNameLabel = app.staticTexts[AccessibilityIdentifiers.PostDetails.companyNameLabelId].label
+
+        let title = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit".capitalized
+        let body = "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto".capitalized
+        let email = "Email: Sincere@april.biz"
+        let username = "Username: Bret"
+        let companyName = "Company: Romaguera-Crona"
+
+        XCTAssertEqual(titleLabel, title)
+        XCTAssertEqual(bodyLabel, body)
+        XCTAssertEqual(userNameLabel, username)
+        XCTAssertEqual(userEmailLabel, email)
+        XCTAssertEqual(companyNameLabel, companyName)
     }
 
     func testLaunchPerformance() throws {
