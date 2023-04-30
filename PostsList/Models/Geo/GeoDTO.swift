@@ -20,5 +20,4 @@ struct GeoDTO: Decodable {
     func toModel() -> Geo {
         Geo(lat: lat, lng: lng)
      }
-
 }

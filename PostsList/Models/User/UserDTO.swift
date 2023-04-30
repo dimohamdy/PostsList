@@ -17,7 +17,6 @@ struct UserDTO: Decodable {
     let website: String?
     let address: AddressDTO?
     let company: CompanyDTO?
-//    let post: NSSet?
 
     enum CodingKeys: String, CodingKey {
         case address

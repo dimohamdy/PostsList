@@ -20,7 +20,6 @@ final class WebUsersRepository: UsersRepository {
               let url = URL(string: path) else {
             throw PostsListError.wrongURL
         }
-        // return the value from try direct without set it in another value
         let users: [UserDTO] = try await client.loadData(from: url)
         return users.map({ $0.toModel() })
     }
@@ -30,7 +29,6 @@ final class WebUsersRepository: UsersRepository {
               let url = URL(string: path) else {
             throw PostsListError.wrongURL
         }
-        // return the value from try direct without set it in another value
         let user: UserDTO? = try? await client.loadData(from: url)
         return user?.toModel()
     }

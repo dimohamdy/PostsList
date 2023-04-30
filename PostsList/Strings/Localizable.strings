@@ -24,7 +24,7 @@
 "No_PostDetails_Error_Title" = "No details";
 "No_PostDetails_Error_Subtitle" = "No details to show";
 
-"No_PostSelected_Error_Title" = "No details";
+"No_PostSelected_Error_Title" = "No post selected";
 "No_PostSelected_Error_Subtitle" = "Please select a post";
 
 "Try_Action" = "Try again";

@@ -20,7 +20,6 @@ final class WebPostsRepository: PostsRepository {
               let url = URL(string: path) else {
             throw PostsListError.wrongURL
         }
-        // return the value from try direct without set it in another value  
         let posts: [PostDTO] = try await client.loadData(from: url)
         return posts.map({ $0.toModel() })
     }
@@ -30,7 +29,6 @@ final class WebPostsRepository: PostsRepository {
               let url = URL(string: path) else {
             throw PostsListError.wrongURL
         }
-        // return the value from try direct without set it in another value
         let post: PostDTO? = try? await client.loadData(from: url)
         return post?.toModel()
     }

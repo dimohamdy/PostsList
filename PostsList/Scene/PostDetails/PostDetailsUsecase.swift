@@ -1,11 +1,12 @@
 //
-//  File.swift
+//  PostDetailsUseCase.swift
 //  PostsList
 //
 //  Created by Dimo Abdelaziz on 27/04/2023.
 //
 
 import Foundation
+
 protocol PostDetailsUseCaseProtocol {
     func getPostDetails(post: Post)  async throws -> PostDetailsData
 }

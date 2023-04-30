@@ -23,7 +23,7 @@ enum Notifications {
         case connected
         case notConnected
     }
-    
+
     enum Data: String, NotificationName {
         case updatePost
         case notConnected

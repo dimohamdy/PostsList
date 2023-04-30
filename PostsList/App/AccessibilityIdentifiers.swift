@@ -8,14 +8,14 @@
 import Foundation
 
 public struct AccessibilityIdentifiers {
-    
+
     public struct PostsList {
         public static let rootViewId = "\(PostsList.self).rootViewId"
         public static let tableViewId = "\(PostsList.self).tableViewId"
         public static let refreshButtonId = "\(PostsList.self).refreshButtonId"
         public static let cellId = "\(PostsList.self).cellId"
     }
-    
+
     public struct PostDetails {
         public static let rootViewId = "\(PostsList.self).rootViewId"
         public static let titleLabelId = "\(PostsList.self).titleLabelId"

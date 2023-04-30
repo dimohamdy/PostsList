@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    
+
     func showEmptyPlaceHolderView(withType type: EmptyPlaceHolderType, completion: (() -> Void)? = nil) -> EmptyPlaceHolderView {
         let emptyPlaceHolderView = EmptyPlaceHolderView(frame: view.bounds)
         emptyPlaceHolderView.translatesAutoresizingMaskIntoConstraints = false

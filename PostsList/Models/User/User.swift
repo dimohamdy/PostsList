@@ -8,20 +8,13 @@
 import Foundation
 import CoreData
 
-// enum DecoderConfigurationError: Error {
-//  case missingManagedObjectContext
-// }
-//
-// extension CodingUserInfoKey {
-//  static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")!
-// }
-
  struct User {
     let email: String
      let id: Int32
      let name: String
      let phone: String
      let username: String
+
     // Optional Values for Users
      let website: String?
      let address: Address?
@@ -36,6 +29,7 @@ import CoreData
          user.name = name
          user.phone = phone
          user.username = username
+
          // Optional Values for Users
          user.website = website
          user.address = address?.toModel()
