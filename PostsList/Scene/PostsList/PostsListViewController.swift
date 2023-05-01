@@ -34,8 +34,6 @@ final class PostsListViewController: UIViewController {
         return refreshControl
     }()
 
-    private var emptyPlaceHolderView: EmptyPlaceHolderView?
-
     private let presenter: PostsListPresenterInput
 
     init(presenter: PostsListPresenterInput) {
