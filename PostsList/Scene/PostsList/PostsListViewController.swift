@@ -57,7 +57,6 @@ final class PostsListViewController: UIViewController {
     // MARK: - Setup Accessibility
 
     private func setupAccessibility() {
-        view.accessibilityIdentifier = AccessibilityIdentifiers.PostsList.rootViewId
         postsTableView.accessibilityIdentifier = AccessibilityIdentifiers.PostsList.tableViewId
     }
 

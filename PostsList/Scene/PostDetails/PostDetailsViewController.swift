@@ -116,7 +116,6 @@ final class PostDetailsViewController: UIViewController {
     // MARK: - Setup Accessibility
 
     private func setupAccessibility() {
-        view.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.rootViewId
         titleLabel.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.titleLabelId
         bodyLabel.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.bodyLabelId
         userTitleLabel.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.userTitleLabelId
@@ -124,8 +123,6 @@ final class PostDetailsViewController: UIViewController {
         userEmailLabel.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.userEmailLabelId
         companyNameLabel.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.companyNameLabelId
         addressStreetLabel.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.addressStreetLabelId
-        stackView.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.stackViewId
-        scrollView.accessibilityIdentifier = AccessibilityIdentifiers.PostDetails.scrollViewId
     }
 
     // MARK: - Setup UI
