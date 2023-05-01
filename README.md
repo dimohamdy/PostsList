@@ -48,8 +48,8 @@ There's a lot of choices to save the data localy like CoreData, Realm, Squlite, 
 * Use ***SnapshotTest*** to test `PostsListViewController`
  
 ## Demo
-![](Demo_iPhone.gif)
-![](Demo_iPad.gif)
+![](Demo_IPhone.gif)
+![](Demo_IPad.gif)
 
 ## Next Release
 * Enhance UI of `PostDetailsViewController`
